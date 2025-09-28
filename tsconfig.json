@@ -1,0 +1,13 @@
+{
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "strict": true,
+    "allowJs": true,
+    "checkJs": false,
+    "allowSyntheticDefaultImports": true
+  }
+}

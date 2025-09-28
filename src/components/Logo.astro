@@ -1,0 +1,33 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "w-32 h-auto" } = Astro.props;
+---
+
+<div class={`flex flex-col items-center ${className}`}>
+  <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+    <!-- HAION en grande arriba -->
+    <text
+      x="100"
+      y="38"
+      text-anchor="middle"
+      class="fill-current font-bold"
+      style="font-family: system-ui, -apple-system, sans-serif; font-size: 32px; font-weight: 700;"
+    >
+      HAION
+    </text>
+    
+    <!-- consulting en pequeño abajo -->
+    <text
+      x="100"
+      y="58"
+      text-anchor="middle"
+      class="fill-current opacity-80"
+      style="font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 400; letter-spacing: 2px;"
+    >
+      CONSULTING
+    </text>
+  </svg>
+</div>

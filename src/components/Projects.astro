@@ -1,0 +1,178 @@
+---
+import GitHub from "./icons/GitHub.astro"
+import NextJS from "./icons/NextJS.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import Link from "./icons/Link.astro"
+import LinkButton from "./LinkButton.astro"
+import Java from "./icons/Java.astro"
+import Spring from "./icons/Spring.astro"
+import Angular from "./icons/Angular.astro"
+import ReactNative from "./icons/ReactNative.astro"
+import Kotlin from "./icons/Kotlin.astro"
+import Firebase from "./icons/Firebase.astro"
+import GoogleMaps from "./icons/GoogleMaps.astro"
+import Android from "./icons/Android.astro"
+import Room from "./icons/Room.astro"
+import AstroIcon from "./icons/Astro.astro"
+
+
+
+const TAGS = {
+  JAVA: {
+    name: "Java",
+    class: "inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white text-xs",
+    icon: Java,
+  },
+  SPRING: {
+    name: "Spring Boot",
+    class: "inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white text-xs",
+    icon: Spring,
+  },
+  ANGULAR: {
+    name: "Angular",
+    class: "inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white text-xs",
+    icon: Angular,
+  },
+  REACT: {
+    name: "React Native",
+    class: "inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white text-xs",
+    icon: ReactNative,
+  },
+  KOTLIN: {
+    name: "Kotlin",
+    class: "inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white text-xs",
+    icon: Kotlin,
+  },
+  FIREBASE: {
+    name: "Firebase",
+    class: "inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white text-xs",
+    icon: Firebase,
+  },
+  MAPS: {
+    name: "Google Maps",
+    class: "inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white text-xs",
+    icon: GoogleMaps,
+  },
+  ANDROID: {
+    name: "Android",
+    class: "inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white text-xs",
+    icon: Android,
+  },
+  ROOM: {
+    name: "Room DB",
+    class: "inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white text-xs",
+    icon: Room,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white text-xs",
+    icon: Tailwind,
+  },
+  ASTRO: {
+    name: "Astro",
+    class: "inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white text-xs",
+    icon: AstroIcon,
+  },
+}
+const PROJECTS = [
+  {
+    title: "Mi Portfolio Web",
+    description:
+      "Portfolio personal desarrollado con Astro 5 y TypeScript. Un sitio web moderno y completamente responsive que presenta mi experiencia profesional, proyectos destacados y habilidades técnicas. Implementa modo oscuro/claro, optimización de imágenes, diseño mobile-first con Tailwind CSS y arquitectura de componentes reutilizables. Desplegado automáticamente en GitHub Pages con CI/CD.",
+    link: "https://jborrsad.github.io/haion_landing",
+    github: "https://github.com/Jborrsad/haion_landing",
+    image: "/haion_landing/projects/portfolio.webp",
+    tags: [TAGS.ASTRO, TAGS.TAILWIND],
+  },
+  {
+    title: "DogTracker - Sistema de Monitorización de Mascotas",
+    description:
+      "Aplicación Android completa para el monitoreo en tiempo real de mascotas. Implementa seguimiento GPS, zonas seguras personalizables con geofencing, notificaciones push instantáneas, gestión de perfiles detallados y historial de ubicaciones. Desarrollada con Kotlin, Material Design 3, Firebase (Realtime Database + Authentication), Google Maps API, Room Database para offline, UCrop para procesamiento de imágenes y sistema de notificaciones avanzado.",
+    link: "https://github.com/JBorrsad/PMDM_DEIN_FINAL",
+    github: "https://github.com/JBorrsad/PMDM_DEIN_FINAL",
+    image: "/haion_landing/projects/pawtracker.jpg",
+    tags: [TAGS.KOTLIN, TAGS.ANDROID, TAGS.FIREBASE],
+  },
+  {
+    title: "E-commerce con Spring Boot",
+    description:
+      "Plataforma de comercio electrónico completa desarrollada con Spring Boot, Spring MVC y Hibernate. Incluye gestión de usuarios, carrito de compras, sistema de pagos y panel de administración. Implementa arquitectura limpia y principios SOLID.",
+    link: "https://github.com/juan-borras/spring-ecommerce",
+    github: "https://github.com/juan-borras/spring-ecommerce",
+    image: "/haion_landing/projects/ecommerce.webp",
+    tags: [TAGS.JAVA, TAGS.SPRING],
+  },
+  {
+    title: "Aplicación Móvil con React Native",
+    description:
+      "App móvil multiplataforma para gestión de tareas personales. Incluye sincronización con la nube, notificaciones push, modo offline y geolocalización. Desarrollada con React Native, TypeScript y Firebase.",
+    link: "https://github.com/juan-borras/task-app-react-native",
+    github: "https://github.com/juan-borras/task-app-react-native",
+    image: "/haion_landing/projects/mobile-app.webp",
+    tags: [TAGS.REACT, TAGS.TAILWIND],
+  },
+  {
+    title: "Dashboard Administrativo con Angular",
+    description:
+      "Panel de control empresarial desarrollado con Angular 17 y TypeScript. Incluye gestión de usuarios, reportes interactivos, gráficos en tiempo real y sistema de autenticación JWT. Implementa lazy loading y optimización de rendimiento.",
+    link: "https://github.com/juan-borras/angular-dashboard",
+    github: "https://github.com/juan-borras/angular-dashboard",
+    image: "/haion_landing/projects/dashboard.webp",
+    tags: [TAGS.ANGULAR, TAGS.TAILWIND],
+  },
+]
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+  <div class="w-full md:w-1/2">
+    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+      <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 md:max-w-lg">
+    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+      {title}
+    </h3>
+    <div class="flex flex-wrap mt-2">
+      <ul class="flex flex-row mb-2 gap-x-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={tag.class}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+      <footer class="flex items-end justify-start mt-4 gap-x-4">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Code
+              
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+    </div>
+  </div>
+</article>
+    ))
+  }
+</div>
+
+
+

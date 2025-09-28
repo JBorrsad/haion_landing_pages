@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Contenedor de sección: ritmo vertical consistente */
+  .section {
+    @apply py-20 sm:py-24 md:py-28 lg:py-32;
+  }
+
+  /* Fondos por sección (LIGERAMENTE distintos) */
+  .section--plain {
+    @apply bg-white dark:bg-gray-950;
+  }
+  .section--alt-1 {
+    @apply bg-slate-50 dark:bg-slate-900;
+  } /* frío-azulado */
+  .section--alt-2 {
+    @apply bg-stone-50 dark:bg-stone-900;
+  } /* cálido-neutro */
+  .section--emphasis {
+    @apply bg-amber-50 dark:bg-amber-900/10;
+  } /* CTA sutil */
+
+  /* Línea divisoria sutil opcional (para separar bloques largos) */
+  .section--divider {
+    @apply border-t border-gray-200/70 dark:border-gray-800/60;
+  }
+
+  /* Contenedor max-width y padding horizontal coherente */
+  .container-narrow {
+    @apply max-w-6xl mx-auto px-4;
+  }
+
+  /* Contraste de texto (ligeramente más fuerte que el actual) */
+  .text-body {
+    @apply text-gray-700 dark:text-gray-200;
+  }
+  .text-muted {
+    @apply text-gray-600 dark:text-gray-300;
+  }
+
+  /* Utilidad de card unificada */
+  .card {
+    @apply rounded-xl border border-gray-200 dark:border-gray-800
+           bg-white dark:bg-gray-950 shadow-sm;
+  }
+}

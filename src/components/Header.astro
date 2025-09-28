@@ -1,0 +1,251 @@
+---
+import Logo from "./Logo.astro";
+
+const navItems = [
+  {
+    title: "Nosotros",
+    label: "sobre-nosotros",
+    url: "/haion_landing/#sobre-nosotros",
+  },
+  {
+    title: "Servicios",
+    label: "servicios",
+    url: "/haion_landing/#servicios",
+  },
+  {
+    title: "Fiscal",
+    label: "fiscal",
+    url: "/haion_landing/fiscal",
+  },
+  {
+    title: "Laboral",
+    label: "laboral",
+    url: "/haion_landing/laboral",
+  },
+  {
+    title: "Contable",
+    label: "contable",
+    url: "/haion_landing/contable",
+  },
+]
+---
+
+<header
+  class="fixed top-0 z-50 w-full bg-white shadow-lg"
+>
+  <!-- Desktop Navigation -->
+  <div class="hidden md:flex items-center justify-between w-full px-4 py-3 mx-auto">
+    <!-- Logo -->
+    <div class="flex items-center">
+      <a href="/haion_landing/" class="flex items-center">
+        <Logo class="w-28 h-auto text-gray-800" />
+      </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav
+      class="flex px-2 md:px-3 text-xs md:text-sm font-medium text-gray-700 items-center space-x-6"
+    >
+      {
+        navItems.map((link) => (
+          <a
+            class="relative block px-1 md:px-2 py-2 transition hover:text-yellow-600 text-center min-w-0 flex-shrink-0 uppercase tracking-wide"
+            aria-label={link.label}
+            href={link.url}
+            data-section={link.label}
+          >
+            {link.title}
+          </a>
+        ))
+      }
+      
+      <!-- Contact Button -->
+      <a
+        href="/haion_landing/contacto"
+        class="px-4 py-2 bg-yellow-200 text-gray-800 font-medium rounded-full hover:bg-yellow-300 transition-colors uppercase tracking-wide text-sm"
+      >
+        Contacto
+      </a>
+      
+      <!-- Search Icon -->
+      <button 
+        class="p-2 text-gray-600 hover:text-yellow-600 transition-colors"
+        aria-label="Buscar"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div class="md:hidden">
+    <!-- Mobile Header -->
+    <div class="flex items-center justify-between w-full px-4 py-3">
+      <!-- Hamburger Menu Button -->
+      <button 
+        id="mobile-menu-toggle"
+        class="p-2 text-gray-600 hover:text-yellow-600 transition-colors"
+        aria-label="Menú"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <!-- Logo centered -->
+      <div class="flex items-center">
+        <a href="/haion_landing/" class="flex items-center">
+          <Logo class="w-24 h-auto text-gray-800" />
+        </a>
+      </div>
+
+      <!-- Empty space for balance -->
+      <div class="w-10"></div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div 
+      id="mobile-menu"
+      class="hidden bg-white border-t border-gray-200 shadow-lg"
+    >
+      <nav class="px-4 py-6 space-y-4">
+        {
+          navItems.map((link) => (
+            <a
+              class="block py-3 px-4 text-gray-700 hover:text-yellow-600 hover:bg-gray-50 rounded-lg transition-colors uppercase tracking-wide font-medium"
+              aria-label={link.label}
+              href={link.url}
+              data-section={link.label}
+            >
+              {link.title}
+            </a>
+          ))
+        }
+        
+        <!-- Mobile Contact Button -->
+        <a
+          href="/haion_landing/contacto"
+          class="block py-3 px-4 bg-yellow-200 text-gray-800 font-medium rounded-lg hover:bg-yellow-300 transition-colors uppercase tracking-wide text-center mt-4"
+        >
+          Contacto
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll("section")
+    const navItems = document.querySelectorAll("header nav a")
+    
+    // Mobile menu functionality
+    const mobileMenuToggle = document.getElementById("mobile-menu-toggle")
+    const mobileMenu = document.getElementById("mobile-menu")
+    
+    if (mobileMenuToggle && mobileMenu) {
+      mobileMenuToggle.addEventListener("click", () => {
+        const isHidden = mobileMenu.classList.contains("hidden")
+        
+        if (isHidden) {
+          mobileMenu.classList.remove("hidden")
+          mobileMenuToggle.innerHTML = `
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          `
+        } else {
+          mobileMenu.classList.add("hidden")
+          mobileMenuToggle.innerHTML = `
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          `
+        }
+      })
+      
+      // Close mobile menu when clicking on a link
+      const mobileNavLinks = mobileMenu.querySelectorAll("a")
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden")
+          mobileMenuToggle.innerHTML = `
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          `
+        })
+      })
+    }
+
+    // Función para scroll suave a las secciones (solo en la página principal)
+    const handleNavClick = (e: Event) => {
+      const target = e.target as HTMLAnchorElement
+      const href = target.getAttribute("href")
+      
+      // Solo manejar enlaces internos que empiecen con /haion_landing/#
+      if (href && href.includes("#") && (window.location.pathname === "/haion_landing/" || window.location.pathname === "/haion_landing")) {
+        e.preventDefault()
+        const sectionId = href.split("#")[1] // Obtener la parte después del #
+        const section = document.getElementById(sectionId)
+        if (section) {
+          section.scrollIntoView({ 
+            behavior: "smooth",
+            block: "start"
+          })
+        }
+      }
+      // Para otros enlaces, dejar que se comporten normalmente
+    }
+
+    // Agregar event listeners a los enlaces de navegación
+    navItems.forEach((item) => {
+      item.addEventListener("click", handleNavClick)
+    })
+
+    const callback = (entries: any[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navItems.forEach((item) => {
+            if (item.getAttribute("aria-label") == entry.target.id) {
+              item.classList.add("text-yellow-600", "font-bold")
+            } else {
+              item.classList.remove("text-yellow-600", "font-bold")
+            }
+          })
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.3,
+    })
+
+    sections.forEach((section) => {
+      observer.observe(section)
+    })
+
+    // Cleanup function
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === "hidden") {
+        observer.disconnect()
+      } else {
+        sections.forEach((section) => {
+          observer.observe(section)
+        })
+      }
+    }
+  })
+</script>
+
+<style>
+  header {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+</style>
+

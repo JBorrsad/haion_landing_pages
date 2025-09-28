@@ -1,0 +1,45 @@
+---
+import Layout from "@/layouts/Layout.astro"
+
+import SobreNosotros from "@/components/SobreNosotros.astro"
+import ServicesColumns from "@/components/ServicesColumns.astro"
+import CTA from "@/components/CTA.astro"
+import SectionContainer from "@/components/SectionContainer.astro"
+import Hero from "@/components/Hero.astro"
+import TitleSection from "@/components/TitleSection.astro"
+---
+
+<Layout
+  title="Haion Consulting - Asesoría Fiscal, Laboral y Contable"
+  description="Asesoría integral para empresas. Gestión clara, compromiso real. Servicios de asesoría fiscal, laboral y contable con el mejor equipo profesional."
+>
+  <main>
+    <!-- Hero a pantalla completa sin padding -->
+    <Hero />
+    
+    <SectionContainer id="sobre-nosotros" variant="alt-1">
+      <SobreNosotros />
+    </SectionContainer>
+
+    <SectionContainer id="servicios" variant="alt-2" divider>
+      <ServicesColumns />
+    </SectionContainer>
+
+    <!-- 
+    SECCIÓN TESTIMONIOS - COMENTADA PARA FUTURO USO
+    <SectionContainer id="testimonios">
+      <TitleSection>
+        <svg class="size-8" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
+        </svg>
+        Lo que dicen nuestros clientes
+      </TitleSection>
+      <Testimonials />
+    </SectionContainer>
+    -->
+
+    <SectionContainer variant="emphasis">
+      <CTA />
+    </SectionContainer>
+  </main>
+</Layout>

@@ -1,0 +1,29 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EDUCATION = [
+  {
+    date: "Septiembre 2023 - Junio 2025",
+    title: "Grado Superior en Desarrollo de Aplicaciones Multiplataforma",
+    company: "Centro Integrado María Ana Sanz",
+    description:
+      "Formación especializada en programación y desarrollo de aplicaciones web, móviles y de escritorio. Manejo de lenguajes como Java, C#, Python, JavaScript y SQL. Desarrollo de interfaces, acceso a bases de datos, gestión de servicios en red y despliegue de aplicaciones multiplataforma",
+  },
+  {
+    date: "Septiembre 1997 - Junio 2012",
+    title: "Educación Primaria, ESO y Bachillerato en Ciencias de la Salud",
+    company: "Colegio San Cernin, Pamplona",
+    description:
+      "Formación académica completa desde educación primaria hasta bachillerato con especialización en ciencias de la salud. Base sólida en metodología científica y pensamiento analítico.",
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EDUCATION.map((education) => (
+      <li class="">
+        <ExperienceItem {...education} />
+      </li>
+    ))
+  }
+</ol> 

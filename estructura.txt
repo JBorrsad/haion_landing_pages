@@ -1,0 +1,74 @@
+Estructura de la pagina: 
+---
+Encabezado
+Sobre Nosotros
+Servicios
+Porqué nosotros
+CTA
+Formulario Contacto
+Footer
+---
+
+
+Contenido de la pagina: 
+
+
+Encabezado
+[Nombre de tu asesoría]
+ Fiscal · Laboral · Contable
+ Gestión clara, compromiso real.
+ Lo importante no es parecer expertos, sino serlo.
+CTA: Solicita una reunión gratuita
+
+Sobre Nosotros
+En [Nombre de tu asesoría] creemos que una buena gestión no se basa solo en cumplir con las obligaciones, sino en entenderlas, anticiparse y tomar decisiones con criterio.
+Nacimos hace poco, pero no improvisamos: nuestro equipo combina experiencia técnica con una visión actual de la asesoría fiscal, laboral y contable.
+Apostamos por la tecnología como soporte, no como sustituto. Automatizamos lo repetitivo, optimizamos tiempos y priorizamos lo esencial: resolver con claridad, comunicar con precisión y acompañar con rigor.
+Trabajamos con empresas, autónomos y profesionales que buscan más que un servicio externo: un aliado que hable su idioma y entienda su contexto.
+
+Servicios
+🧾 Fiscal
+ Optimizamos tu situación fiscal con inteligencia, no con trucos.
+Declaraciones trimestrales y anuales
+Fiscalidad de autónomos y sociedades
+Planificación fiscal estratégica y honesta
+👷 Laboral
+ Las personas importan. Y el cumplimiento también.
+Gestión de nóminas y seguros sociales
+Altas, bajas, contratos, inspecciones
+Asesoramiento en relaciones laborales
+📊 Contable
+ Tus números no son solo cifras: son decisiones.
+Contabilidad comprensible y rigurosa
+Libros oficiales, balances, cuentas anuales
+Informes adaptados a tu actividad
+
+Por qué elegirnos
+Apostamos por el lenguaje claro, no por el técnico vacío
+Integramos tecnología para ganar tiempo, no para perder el trato humano
+Respondemos, explicamos, nos implicamos
+No “llevamos tu contabilidad”; te ayudamos a comprender tu negocio
+
+Testimonios (opcional)
+“Por fin una asesoría que explica sin vueltas, responde sin demora y actúa con cabeza.”
+ — Carmen A., diseñadora freelance
+“No sabía nada de fiscalidad. Ahora entiendo más de lo que creía y me siento acompañado.”
+ — Tomás R., tienda online
+
+Llamado a la acción
+¿Buscas una asesoría que te hable con claridad, te entienda y actúe rápido?
+ Podemos empezar hoy.
+CTA: Solicita información
+
+Formulario de contacto
+Nombre
+Correo electrónico o teléfono
+Mensaje breve
+Te respondemos en menos de 24 horas.
+
+Footer
+[Nombre de la asesoría] | Asesoría Fiscal, Laboral y Contable
+ CIF | Dirección (opcional)
+ Política de privacidad | Aviso legal
+ Redes sociales
+

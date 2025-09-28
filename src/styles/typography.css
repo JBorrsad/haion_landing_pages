@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Headings con DM Serif */
+  .h1 {
+    font-family: "DM Serif Display", serif;
+    @apply font-normal text-gray-900 dark:text-white
+           text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
+  }
+  .h2 {
+    font-family: "DM Serif Display", serif;
+    @apply font-normal text-gray-900 dark:text-white
+           text-3xl sm:text-4xl md:text-5xl;
+  }
+  .h3 {
+    font-family: "DM Serif Display", serif;
+    @apply font-normal text-gray-900 dark:text-white
+           text-2xl sm:text-3xl;
+  }
+
+  /* Texto base */
+  .lead {
+    @apply text-gray-600 dark:text-gray-400 leading-relaxed text-base sm:text-lg;
+  }
+  .muted {
+    @apply text-sm text-gray-600 dark:text-gray-400;
+  }
+
+  /* Botones */
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-lg font-medium transition-colors;
+  }
+  .btn-primary {
+    @apply btn px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white;
+  }
+  .btn-secondary {
+    @apply btn px-4 py-2 bg-yellow-200 hover:bg-yellow-300 text-gray-800 text-sm;
+  }
+
+  /* Tarjetas de servicio (home) */
+  .service-card {
+    @apply bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-xl
+           border border-yellow-200 dark:border-yellow-700
+           hover:shadow-lg transition-shadow;
+  }
+}

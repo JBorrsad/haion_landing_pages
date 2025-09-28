@@ -1,0 +1,20 @@
+---
+interface Props {
+  id?: string
+  class?: string
+  variant?: 'plain' | 'alt-1' | 'alt-2' | 'emphasis'
+  divider?: boolean
+}
+const { id, class:klass = '', variant = 'plain', divider = false } = Astro.props
+const bg =
+  variant === 'alt-1' ? 'section--alt-1' :
+  variant === 'alt-2' ? 'section--alt-2' :
+  variant === 'emphasis' ? 'section--emphasis' :
+  'section--plain'
+const line = divider ? 'border-t border-gray-200/70 dark:border-gray-800/60' : ''
+---
+<section id={id} class={`section ${bg} ${line}`}>
+  <div class={`container-narrow ${klass}`}>
+    <slot />
+  </div>
+</section>
