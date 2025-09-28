@@ -6,12 +6,13 @@ import robotsTxt from "astro-robots-txt";
 // https://astro.build/config
 export default defineConfig({
   integrations: [
-    tailwind(), 
+    tailwind(),
     sitemap(),
     robotsTxt({
       policy: [{ userAgent: "*", allow: "/" }],
-      sitemap: "https://jborrsad.github.io/haion_landing_pages/sitemap-index.xml",
-    })
+      sitemap:
+        "https://jborrsad.github.io/haion_landing_pages/sitemap-index.xml",
+    }),
   ],
   site: "https://jborrsad.github.io/haion_landing_pages/",
   base: "/haion_landing_pages",
