@@ -5,27 +5,27 @@ const navItems = [
   {
     title: "Nosotros",
     label: "sobre-nosotros",
-    url: "/haion_landing/#sobre-nosotros",
+    url: "/haion_landing_pages/#sobre-nosotros",
   },
   {
     title: "Servicios",
     label: "servicios",
-    url: "/haion_landing/#servicios",
+    url: "/haion_landing_pages/#servicios",
   },
   {
     title: "Fiscal",
     label: "fiscal",
-    url: "/haion_landing/fiscal",
+    url: "/haion_landing_pages/fiscal",
   },
   {
     title: "Laboral",
     label: "laboral",
-    url: "/haion_landing/laboral",
+    url: "/haion_landing_pages/laboral",
   },
   {
     title: "Contable",
     label: "contable",
-    url: "/haion_landing/contable",
+    url: "/haion_landing_pages/contable",
   },
 ]
 ---
@@ -37,7 +37,7 @@ const navItems = [
   <div class="hidden md:flex items-center justify-between w-full px-4 py-3 mx-auto">
     <!-- Logo -->
     <div class="flex items-center">
-      <a href="/haion_landing/" class="flex items-center">
+      <a href="/haion_landing_pages/" class="flex items-center">
         <Logo class="w-28 h-auto text-gray-800" />
       </a>
     </div>
@@ -61,7 +61,7 @@ const navItems = [
       
       <!-- Contact Button -->
       <a
-        href="/haion_landing/contacto"
+        href="/haion_landing_pages/contacto"
         class="px-4 py-2 bg-yellow-200 text-gray-800 font-medium rounded-full hover:bg-yellow-300 transition-colors uppercase tracking-wide text-sm"
       >
         Contacto
@@ -96,7 +96,7 @@ const navItems = [
 
       <!-- Logo centered -->
       <div class="flex items-center">
-        <a href="/haion_landing/" class="flex items-center">
+        <a href="/haion_landing_pages/" class="flex items-center">
           <Logo class="w-24 h-auto text-gray-800" />
         </a>
       </div>
@@ -126,7 +126,7 @@ const navItems = [
         
         <!-- Mobile Contact Button -->
         <a
-          href="/haion_landing/contacto"
+          href="/haion_landing_pages/contacto"
           class="block py-3 px-4 bg-yellow-200 text-gray-800 font-medium rounded-lg hover:bg-yellow-300 transition-colors uppercase tracking-wide text-center mt-4"
         >
           Contacto
@@ -185,8 +185,8 @@ const navItems = [
       const target = e.target as HTMLAnchorElement
       const href = target.getAttribute("href")
       
-      // Solo manejar enlaces internos que empiecen con /haion_landing/#
-      if (href && href.includes("#") && (window.location.pathname === "/haion_landing/" || window.location.pathname === "/haion_landing")) {
+      // Solo manejar enlaces internos que empiecen con /haion_landing_pages/#
+      if (href && href.includes("#") && (window.location.pathname === "/haion_landing_pages/" || window.location.pathname === "/haion_landing")) {
         e.preventDefault()
         const sectionId = href.split("#")[1] // Obtener la parte después del #
         const section = document.getElementById(sectionId)

@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://jborrsad.github.io/haion_landing/sitemap.xml
