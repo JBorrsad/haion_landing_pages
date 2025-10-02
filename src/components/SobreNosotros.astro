@@ -2,62 +2,62 @@
 /* No cambies props. Este componente solo imprime contenido de "Sobre nosotros". */
 ---
 
-<div class="max-w-6xl mx-auto">
+<div class="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
   <!-- Título de la sección -->
   <h2 class="h2 mb-10 md:mb-14">Sobre nosotros</h2>
 
-  <!-- Intro: 2 columnas -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start mb-12 md:mb-16">
-    <!-- Columna texto -->
-    <div class="text-body">
-      <p class="lead mb-4">
-        En Haion Consulting entendemos que asesorar no es solo cumplir con obligaciones, sino adelantarse, entender el contexto y tomar decisiones con criterio.
-      </p>
+  <!-- Texto completo - ocupa todo el ancho -->
+  <div class="text-body mb-12 md:mb-16">
+    <p class="lead mb-4">
+      En Haion Consulting entendemos que asesorar no es solo cumplir con obligaciones, sino adelantarse, entender el contexto y tomar decisiones con criterio.
+    </p>
 
-      <p class="lead mb-4">
-        Nuestro equipo une experiencia técnica y una visión moderna de la asesoría fiscal, laboral y contable.
-      </p>
+    <p class="lead mb-4">
+      Nuestro equipo une experiencia técnica y una visión moderna de la asesoría fiscal, laboral y contable.
+    </p>
 
-      <p class="lead mb-4">
-        Apostamos por la tecnología como aliada, no como reemplazo. Automatizamos lo repetitivo, optimizamos tiempos y nos enfocamos en lo importante: resolver con claridad, comunicar con precisión y acompañarte con rigor.
-      </p>
+    <p class="lead mb-4">
+      Apostamos por la tecnología como aliada, no como reemplazo. Automatizamos lo repetitivo, optimizamos tiempos y nos enfocamos en lo importante: resolver con claridad, comunicar con precisión y acompañarte con rigor.
+    </p>
 
-      <p class="lead font-medium">Nos mueve un objetivo claro: tu tranquilidad y satisfacción. Nos comprometemos contigo para crear valor real y duradero.</p>
-    </div>
-
-    <!-- Columna imagen (usa un placeholder local) -->
-    <div class="w-full">
-      <img
-        src="/haion_landing_pages/img/nosotros.jpg"
-        alt="Equipo de trabajo de Haion Consulting"
-        class="w-full h-auto rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm object-cover"
-      />
-    </div>
+    <p class="lead font-medium">Nos mueve un objetivo claro: tu tranquilidad y satisfacción. Nos comprometemos contigo para crear valor real y duradero.</p>
   </div>
 
-  <!-- Misión / Visión / Valores: 3 tarjetas tipográficas -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-    <article class="card p-6">
-      <h3 class="h3 mb-3">Misión</h3>
-      <p class="text-body">
-        Acompañarte en la gestión de tu negocio con soluciones claras, rápidas y personalizadas.
-      </p>
-    </article>
+  <!-- Layout: 2 columnas para tarjetas e imagen -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-stretch">
+    <!-- Columna izquierda: tarjetas en vertical -->
+    <div class="flex flex-col justify-between gap-6">
+      <article class="card p-6 flex-1 flex flex-col justify-center">
+        <h3 class="h3 mb-3">Misión</h3>
+        <p class="text-body">
+          Acompañarte en la gestión de tu negocio con soluciones claras, rápidas y personalizadas.
+        </p>
+      </article>
 
-    <article class="card p-6">
-      <h3 class="h3 mb-3">Visión</h3>
-      <p class="text-body">
-        Que te centres en hacer crecer tu empresa, con la confianza de contar con un equipo experto a tu lado.
-      </p>
-    </article>
+      <article class="card p-6 flex-1 flex flex-col justify-center">
+        <h3 class="h3 mb-3">Visión</h3>
+        <p class="text-body">
+          Que te centres en hacer crecer tu empresa, con la confianza de contar con un equipo experto a tu lado.
+        </p>
+      </article>
 
-    <article class="card p-6">
-      <h3 class="h3 mb-4">Valores</h3>
-      <ul class="text-body space-y-2">
-        <li><span class="font-medium text-yellow-700 dark:text-yellow-400">Honestidad:</span> decimos la verdad, no lo que conviene.</li>
-        <li><span class="font-medium text-yellow-700 dark:text-yellow-400">Compromiso:</span> siempre disponibles cuando nos necesitas.</li>
-        <li><span class="font-medium text-yellow-700 dark:text-yellow-400">Empatía:</span> entendemos tus retos porque también hemos estado ahí.</li>
-      </ul>
-    </article>
+      <article class="card p-6 flex-1 flex flex-col justify-center">
+        <h3 class="h3 mb-4">Valores</h3>
+        <ul class="text-body space-y-2">
+          <li><span class="font-medium text-yellow-700 dark:text-yellow-400">Honestidad:</span> decimos la verdad, no lo que conviene.</li>
+          <li><span class="font-medium text-yellow-700 dark:text-yellow-400">Compromiso:</span> siempre disponibles cuando nos necesitas.</li>
+          <li><span class="font-medium text-yellow-700 dark:text-yellow-400">Empatía:</span> entendemos tus retos porque también hemos estado ahí.</li>
+        </ul>
+      </article>
+    </div>
+
+    <!-- Columna derecha: imagen -->
+    <div class="w-full h-full">
+      <img
+        src="/haion_landing_pages/img/nosotros.png"
+        alt="Equipo de trabajo de Haion Consulting"
+        class="w-full h-full rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm object-cover"
+      />
+    </div>
   </div>
 </div>

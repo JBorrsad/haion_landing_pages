@@ -1,9 +1,9 @@
 ---
 ---
 
-<div class="relative min-h-screen flex items-stretch">
+<div class="relative min-h-screen flex items-stretch overflow-hidden">
   <!-- Imagen de fondo fija -->
-  <div class="fixed inset-0 z-0">
+  <div class="fixed inset-0 z-0 hero-image">
     <img 
       src="/haion_landing_pages/bg.jpg" 
       alt="Asesoría profesional" 
@@ -13,8 +13,12 @@
     <div class="absolute inset-0 bg-black/60"></div>
   </div>
 
+  <!-- Cortinas de reveal -->
+  <div class="hero-curtain-top fixed top-0 left-0 right-0 z-20 bg-black" style="height: 50vh;"></div>
+  <div class="hero-curtain-bottom fixed bottom-0 left-0 right-0 z-20 bg-black" style="height: 50vh;"></div>
+
   <!-- Contenido del hero -->
-  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center min-h-screen pt-20 pb-10">
+  <div class="hero-content relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center min-h-screen pt-20 pb-10">
     
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
       
@@ -79,3 +83,61 @@
     </div>
   </div>
 </div>
+
+<style>
+	.hero-curtain-top {
+		animation: curtainRevealTop 0.8s cubic-bezier(0.76, 0, 0.24, 1) 0.3s forwards;
+	}
+
+	.hero-curtain-bottom {
+		animation: curtainRevealBottom 0.8s cubic-bezier(0.76, 0, 0.24, 1) 0.3s forwards;
+	}
+
+	.hero-content {
+		opacity: 0;
+		animation: contentFadeIn 0.6s ease-out 0.9s forwards;
+	}
+
+	.hero-image {
+		opacity: 0;
+		animation: imageFadeIn 0.6s ease-out 0.4s forwards;
+	}
+
+	@keyframes curtainRevealTop {
+		0% {
+			transform: translateY(0);
+		}
+		100% {
+			transform: translateY(-100%);
+		}
+	}
+
+	@keyframes curtainRevealBottom {
+		0% {
+			transform: translateY(0);
+		}
+		100% {
+			transform: translateY(100%);
+		}
+	}
+
+	@keyframes contentFadeIn {
+		0% {
+			opacity: 0;
+			transform: translateY(30px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes imageFadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+</style>

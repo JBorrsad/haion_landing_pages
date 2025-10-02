@@ -29,7 +29,7 @@
 
   /* Contenedor max-width y padding horizontal coherente */
   .container-narrow {
-    @apply max-w-6xl mx-auto px-4;
+    @apply max-w-7xl mx-auto px-6 sm:px-8 md:px-12;
   }
 
   /* Contraste de texto (ligeramente más fuerte que el actual) */
