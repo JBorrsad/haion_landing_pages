@@ -2,6 +2,7 @@
 import "@fontsource-variable/onest"
 import "../styles/typography.css"
 import "../styles/sections.css"
+import "../styles/microinteractions.css"
 
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
@@ -42,6 +43,9 @@ const { description, title } = Astro.props
       <slot />
     </main>
     <Footer />
+    
+    <script src="../scripts/reveal.ts"></script>
+    
     <style is:global>
       :root {
         color-scheme: light dark;
@@ -58,9 +62,13 @@ const { description, title } = Astro.props
         overflow-x: hidden;
       }
 
-      .page-background {
+      body.play-hero-reveal .page-background {
         opacity: 0;
         animation: backgroundFadeIn 0.5s ease-out 1.1s forwards;
+      }
+
+      body:not(.play-hero-reveal) .page-background {
+        opacity: 1;
       }
 
       @keyframes backgroundFadeIn {

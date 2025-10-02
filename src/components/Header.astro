@@ -37,7 +37,7 @@ const navItems = [
   <div class="hidden md:flex items-center justify-between w-full px-4 py-3 mx-auto">
     <!-- Logo -->
     <div class="flex items-center">
-      <a href="/haion_landing_pages/" class="flex items-center">
+      <a href="/haion_landing_pages/" id="logo-link-desktop" class="flex items-center">
         <Logo class="w-28 h-auto text-gray-800" />
       </a>
     </div>
@@ -96,7 +96,7 @@ const navItems = [
 
       <!-- Logo centered -->
       <div class="flex items-center">
-        <a href="/haion_landing_pages/" class="flex items-center">
+        <a href="/haion_landing_pages/" id="logo-link-mobile" class="flex items-center">
           <Logo class="w-24 h-auto text-gray-800" />
         </a>
       </div>
@@ -142,6 +142,22 @@ const navItems = [
     const navItems = document.querySelectorAll("header nav a[data-section]")
     const currentPath = window.location.pathname
     const isMainPage = currentPath === "/haion_landing_pages/" || currentPath === "/haion_landing_pages/index.html" || currentPath === "/haion_landing"
+    
+    // Event listener para el logo - activar animación
+    const logoDesktop = document.getElementById('logo-link-desktop');
+    const logoMobile = document.getElementById('logo-link-mobile');
+    
+    const handleLogoClick = () => {
+      sessionStorage.setItem('animate-hero', 'true');
+    };
+    
+    if (logoDesktop) {
+      logoDesktop.addEventListener('click', handleLogoClick);
+    }
+    
+    if (logoMobile) {
+      logoMobile.addEventListener('click', handleLogoClick);
+    }
     
     // Función para actualizar el resaltado según la página actual
     const updateActiveNav = () => {
@@ -284,10 +300,15 @@ const navItems = [
     -webkit-backdrop-filter: blur(10px);
   }
 
-  .header-animated {
+  body.play-hero-reveal .header-animated {
     opacity: 0;
     transform: translateY(-100%);
     animation: headerSlideDown 0.6s ease-out 1.5s forwards;
+  }
+
+  body:not(.play-hero-reveal) .header-animated {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   @keyframes headerSlideDown {

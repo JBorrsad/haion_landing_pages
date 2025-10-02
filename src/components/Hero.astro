@@ -85,22 +85,37 @@
 </div>
 
 <style>
-	.hero-curtain-top {
+	/* Animaciones solo cuando el body tiene la clase 'play-hero-reveal' */
+	body.play-hero-reveal .hero-curtain-top {
 		animation: curtainRevealTop 0.8s cubic-bezier(0.76, 0, 0.24, 1) 0.3s forwards;
 	}
 
-	.hero-curtain-bottom {
+	body.play-hero-reveal .hero-curtain-bottom {
 		animation: curtainRevealBottom 0.8s cubic-bezier(0.76, 0, 0.24, 1) 0.3s forwards;
 	}
 
-	.hero-content {
+	body.play-hero-reveal .hero-content {
 		opacity: 0;
 		animation: contentFadeIn 0.6s ease-out 0.9s forwards;
 	}
 
-	.hero-image {
+	body.play-hero-reveal .hero-image {
 		opacity: 0;
 		animation: imageFadeIn 0.6s ease-out 0.4s forwards;
+	}
+
+	/* Sin animación - estado normal */
+	body:not(.play-hero-reveal) .hero-curtain-top,
+	body:not(.play-hero-reveal) .hero-curtain-bottom {
+		display: none;
+	}
+
+	body:not(.play-hero-reveal) .hero-content {
+		opacity: 1;
+	}
+
+	body:not(.play-hero-reveal) .hero-image {
+		opacity: 1;
 	}
 
 	@keyframes curtainRevealTop {
@@ -141,3 +156,37 @@
 		}
 	}
 </style>
+
+<script is:inline>
+	function initHeroReveal() {
+		const currentPath = window.location.pathname;
+		const isMainPage = currentPath === '/haion_landing_pages/' || currentPath === '/haion_landing_pages/index.html' || currentPath === '/haion_landing';
+		
+		// Solo ejecutar animación en la página principal
+		if (isMainPage) {
+			// Verificar si es la primera visita o si viene del logo
+			const shouldAnimate = !sessionStorage.getItem('hero-revealed') || sessionStorage.getItem('animate-hero') === 'true';
+			
+			if (shouldAnimate) {
+				document.body.classList.add('play-hero-reveal');
+				sessionStorage.setItem('hero-revealed', 'true');
+				sessionStorage.removeItem('animate-hero');
+				
+				// Remover la clase después de que termine la animación
+				setTimeout(() => {
+					document.body.classList.remove('play-hero-reveal');
+				}, 2200);
+			}
+		}
+	}
+
+	// Ejecutar en carga inicial
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initHeroReveal);
+	} else {
+		initHeroReveal();
+	}
+	
+	// Re-ejecutar después de navegación
+	document.addEventListener('astro:page-load', initHeroReveal);
+</script>
