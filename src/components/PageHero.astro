@@ -1,0 +1,35 @@
+---
+interface Props {
+	title: string
+	subtitle: string
+	image: string
+}
+
+const { title, subtitle, image } = Astro.props
+---
+
+<div class="relative min-h-[50vh] flex items-stretch">
+	<!-- Imagen de fondo fija -->
+	<div class="fixed inset-0 z-0">
+		<img 
+			src={image}
+			alt={title}
+			class="w-full h-full object-cover"
+		/>
+		<!-- Overlay oscuro para legibilidad -->
+		<div class="absolute inset-0 bg-black/60"></div>
+	</div>
+
+	<!-- Contenido del hero -->
+	<div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center min-h-[50vh] pt-32 pb-16">
+		<div class="max-w-4xl">
+			<h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-dm-serif font-normal text-white mb-6">
+				{title}
+			</h1>
+			<p class="text-lg sm:text-xl md:text-2xl text-gray-200 leading-relaxed max-w-3xl">
+				{subtitle}
+			</p>
+		</div>
+	</div>
+</div>
+

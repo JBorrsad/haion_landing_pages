@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro"
 import SectionContainer from "@/components/SectionContainer.astro"
-import TitleSection from "@/components/TitleSection.astro"
+import PageHero from "@/components/PageHero.astro"
 ---
 
 <Layout
@@ -9,20 +9,13 @@ import TitleSection from "@/components/TitleSection.astro"
   description="Servicios de asesoría laboral integral. Gestión de nóminas, contratos de trabajo y cumplimiento normativo laboral."
 >
   <main>
-    <SectionContainer variant="plain">
-          <!-- Encabezado Principal -->
-          <div class="text-center mb-16">
-            <h1 class="h1 mb-6">
-              Cuidamos de tu equipo y aseguramos el cumplimiento normativo.
-            </h1>
-          </div>
+    <PageHero 
+      title="Cuidamos de tu equipo y aseguramos el cumplimiento normativo."
+      subtitle="La gestión laboral no solo se trata de cumplir con la legislación, sino de crear un ambiente de trabajo sano, legal y eficiente. Te ayudamos a gestionar tu equipo de manera que puedas centrarte en lo que mejor sabes hacer: crecer tu negocio."
+      image="/haion_landing_pages/img/laboral.jpg"
+    />
 
-          <!-- Introducción -->
-          <div class="mb-16">
-            <p class="text-body max-w-4xl mx-auto text-center text-base sm:text-lg leading-relaxed">
-              La gestión laboral no solo se trata de cumplir con la legislación, sino de crear un ambiente de trabajo sano, legal y eficiente. Te ayudamos a gestionar tu equipo de manera que puedas centrarte en lo que mejor sabes hacer: crecer tu negocio.
-            </p>
-          </div>
+    <SectionContainer variant="plain">
 
           <!-- Beneficios de una buena asesoría laboral -->
           <div class="mb-16">

@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro"
 import SectionContainer from "@/components/SectionContainer.astro"
-import TitleSection from "@/components/TitleSection.astro"
+import PageHero from "@/components/PageHero.astro"
 ---
 
 <Layout
@@ -9,20 +9,13 @@ import TitleSection from "@/components/TitleSection.astro"
   description="Servicios de asesoría contable integral. Contabilidad, balances, cuentas anuales y gestión fiscal."
 >
   <main>
-    <SectionContainer variant="plain">
-          <!-- Encabezado Principal -->
-          <div class="text-center mb-16">
-            <h1 class="h1 mb-6">
-              Tus números no son solo cifras: son decisiones estratégicas.
-            </h1>
-          </div>
+    <PageHero 
+      title="Tus números no son solo cifras: son decisiones estratégicas."
+      subtitle="La contabilidad es la brújula que guía las decisiones empresariales. Con nuestra asesoría contable, te ayudamos a tener una visión clara y precisa de tus finanzas, para que puedas tomar decisiones basadas en datos reales y no en suposiciones."
+      image="/haion_landing_pages/img/contable.jpg"
+    />
 
-          <!-- Introducción -->
-          <div class="mb-16">
-            <p class="text-body max-w-4xl mx-auto text-center text-base sm:text-lg leading-relaxed">
-              La contabilidad es la brújula que guía las decisiones empresariales. Con nuestra asesoría contable, te ayudamos a tener una visión clara y precisa de tus finanzas, para que puedas tomar decisiones basadas en datos reales y no en suposiciones.
-            </p>
-          </div>
+    <SectionContainer variant="plain">
 
           <!-- Beneficios de una buena asesoría contable -->
           <div class="mb-16">
