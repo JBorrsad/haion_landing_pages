@@ -5,7 +5,7 @@
 @layer components {
   /* Contenedor de sección: ritmo vertical consistente */
   .section {
-    @apply py-20 sm:py-24 md:py-28 lg:py-32;
+    @apply py-20 sm:py-24 md:py-28 lg:py-32 relative z-10;
   }
 
   /* Fondos por sección (LIGERAMENTE distintos) */
