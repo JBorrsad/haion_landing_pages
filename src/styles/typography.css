@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  /* Forzar checkboxes con fondo blanco siempre */
+  input[type="checkbox"] {
+    background-color: white !important;
+    border: 1px solid #d1d5db !important;
+    color-scheme: light !important;
+  }
+
+  input[type="checkbox"]:checked {
+    background-color: #ca8a04 !important;
+    border-color: #ca8a04 !important;
+  }
+}
+
 @layer components {
   /* Headings con DM Serif */
   .h1 {

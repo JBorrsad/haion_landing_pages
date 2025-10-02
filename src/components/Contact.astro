@@ -2,145 +2,192 @@
 import MailIcon from "@/components/icons/Mail.astro"
 import WhatsAppIcon from "@/components/icons/WhatsApp.astro"
 import LinkedInIcon from "@/components/icons/LinkedIn.astro"
+import LegalModal from "@/components/LegalModal.astro"
 ---
 
-<div class="flex flex-col gap-6">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <a
-      href="mailto:[EMAIL_EMPRESA]"
-      class="flex items-center gap-4 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 transition-colors group hover:bg-blue-50 dark:hover:bg-blue-950/30"
-    >
-      <div class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 group-hover:bg-blue-200 dark:group-hover:bg-blue-800 transition-colors">
-        <MailIcon class="size-6 text-blue-600 dark:text-blue-400" />
-      </div>
-      <div>
-        <h3 class="font-semibold text-gray-900 dark:text-white">Email</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">[EMAIL_EMPRESA]</p>
-      </div>
-    </a>
+<div>
+	<div class="mb-12">
+		<h2 class="h2">
+			Contáctanos
+		</h2>
+	</div>
 
-    <a
-      href="https://wa.me/[TELEFONO_WHATSAPP]"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="flex items-center gap-4 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-green-300 dark:hover:border-green-600 transition-colors group hover:bg-green-50 dark:hover:bg-green-950/30"
-    >
-      <div class="flex items-center justify-center w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 group-hover:bg-green-200 dark:group-hover:bg-green-800 transition-colors">
-        <WhatsAppIcon class="size-6 text-green-600 dark:text-green-400" />
-      </div>
-      <div>
-        <h3 class="font-semibold text-gray-900 dark:text-white">WhatsApp</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">[TEXTO_WHATSAPP]</p>
-      </div>
-    </a>
+	<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+		<!-- Columna izquierda: Información de contacto -->
+		<div class="space-y-4">
+			<div class="card flex items-center gap-4 p-4">
+				<div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900/20">
+					<svg class="size-6 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+					</svg>
+				</div>
+				<div>
+					<h3 class="font-semibold text-gray-900 dark:text-white">Ubicación</h3>
+					<p class="text-sm text-gray-600 dark:text-gray-400">[DIRECCION_EMPRESA]</p>
+				</div>
+			</div>
 
-    <a
-      href="[URL_LINKEDIN_EMPRESA]"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="flex items-center gap-4 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 transition-colors group hover:bg-blue-50 dark:hover:bg-blue-950/30"
-    >
-      <div class="flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 group-hover:bg-blue-200 dark:group-hover:bg-blue-800 transition-colors">
-        <LinkedInIcon class="size-6 text-blue-600 dark:text-blue-400" />
-      </div>
-      <div>
-        <h3 class="font-semibold text-gray-900 dark:text-white">LinkedIn</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">[TEXTO_LINKEDIN]</p>
-      </div>
-    </a>
+			<div class="card flex items-center gap-4 p-4">
+				<div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900/20">
+					<svg class="size-6 text-yellow-600 dark:text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+					</svg>
+				</div>
+				<div>
+					<h3 class="font-semibold text-gray-900 dark:text-white">Teléfono</h3>
+					<div class="text-sm text-gray-600 dark:text-gray-400">
+						<p>[TELEFONO_1]</p>
+						<p>[TELEFONO_2]</p>
+						<p>[TELEFONO_3]</p>
+					</div>
+				</div>
+			</div>
 
-    <div class="flex items-center gap-4 p-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/30">
-      <div class="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-800">
-        <svg class="size-6 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-        </svg>
-      </div>
-      <div>
-        <h3 class="font-semibold text-gray-900 dark:text-white">Ubicación</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">[DIRECCION_EMPRESA]</p>
-      </div>
-    </div>
-  </div>
+			<a
+				href="mailto:[EMAIL_EMPRESA]"
+				class="card flex items-center gap-4 p-4 hover:shadow-lg transition-shadow"
+			>
+				<div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900/20">
+					<MailIcon class="size-6 text-yellow-600 dark:text-yellow-400" />
+				</div>
+				<div>
+					<h3 class="font-semibold text-gray-900 dark:text-white">Email</h3>
+					<p class="text-sm text-gray-600 dark:text-gray-400">[EMAIL_EMPRESA]</p>
+				</div>
+			</a>
 
-  <div class="mt-8 p-6 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/30">
-    <div class="text-center mb-6">
-      <h3 class="font-dm-serif text-2xl font-normal text-gray-900 dark:text-white mb-2">
-        Puedes enviarnos un email con tu consulta o llamarnos por teléfono
-      </h3>
-      <p class="text-gray-600 dark:text-gray-400">
-        Contacto online
-      </p>
-    </div>
+			<a
+				href="https://wa.me/[TELEFONO_WHATSAPP]"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="card flex items-center gap-4 p-4 hover:shadow-lg transition-shadow"
+			>
+				<div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900/20">
+					<WhatsAppIcon class="size-6 text-yellow-600 dark:text-yellow-400" />
+				</div>
+				<div>
+					<h3 class="font-semibold text-gray-900 dark:text-white">WhatsApp</h3>
+					<p class="text-sm text-gray-600 dark:text-gray-400">[TEXTO_WHATSAPP]</p>
+				</div>
+			</a>
 
-    <form class="space-y-6 max-w-2xl mx-auto">
-      <div>
-        <label for="nombre" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-          Nombre <span class="text-red-500">*</span>
-        </label>
-        <input
-          type="text"
-          id="nombre"
-          name="nombre"
-          required
-          placeholder="Tu nombre completo"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors"
-        />
-      </div>
-      
-      <div>
-        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-          Correo electrónico <span class="text-red-500">*</span>
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          placeholder="tu@email.com"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors"
-        />
-      </div>
+			<a
+				href="[URL_LINKEDIN_EMPRESA]"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="card flex items-center gap-4 p-4 hover:shadow-lg transition-shadow"
+			>
+				<div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900/20">
+					<LinkedInIcon class="size-6 text-yellow-600 dark:text-yellow-400" />
+				</div>
+				<div>
+					<h3 class="font-semibold text-gray-900 dark:text-white">LinkedIn</h3>
+					<p class="text-sm text-gray-600 dark:text-gray-400">[TEXTO_LINKEDIN]</p>
+				</div>
+			</a>
+		</div>
 
-      <div>
-        <label for="telefono" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-          Teléfono <span class="text-red-500">*</span>
-        </label>
-        <input
-          type="tel"
-          id="telefono"
-          name="telefono"
-          required
-          placeholder="666 123 456"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors"
-        />
-      </div>
+		<!-- Columna derecha: Formulario -->
+		<div class="card p-8">
+			<div class="mb-6">
+				<p class="text-sm text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">
+					¿TIENES ALGUNA DUDA?
+				</p>
+			</div>
+			<form class="space-y-6">
+				<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+				<div>
+					<input
+						type="text"
+						id="nombre"
+						name="nombre"
+						required
+						placeholder="Nombre"
+						class="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-yellow-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors"
+					/>
+				</div>
+				
+				<div>
+					<input
+						type="email"
+						id="email"
+						name="email"
+						required
+						placeholder="Email"
+						class="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-yellow-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors"
+					/>
+				</div>
 
-      <div>
-        <label for="mensaje" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-          Mensaje breve
-        </label>
-        <textarea
-          id="mensaje"
-          name="mensaje"
-          rows="4"
-          placeholder="Cuéntanos brevemente en qué podemos ayudarte..."
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors resize-vertical"
-        ></textarea>
-      </div>
+				<div>
+					<input
+						type="tel"
+						id="telefono"
+						name="telefono"
+						required
+						placeholder="Teléfono"
+						class="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-yellow-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors"
+					/>
+				</div>
+			</div>
 
-      <div class="pt-4">
-        <button
-          type="submit"
-          class="w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 text-lg"
-        >
-          Enviar consulta
-        </button>
-      </div>
-      
-      <p class="text-center text-sm text-gray-500 dark:text-gray-400">
-        Te respondemos en menos de 24 horas.
-      </p>
-    </form>
-  </div>
-</div> 
+			<div>
+				<textarea
+					id="mensaje"
+					name="mensaje"
+					rows="6"
+					placeholder="Mensaje"
+					class="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-yellow-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors resize-vertical"
+				></textarea>
+			</div>
+
+			<div class="flex items-start gap-2">
+				<input
+					type="checkbox"
+					id="privacidad"
+					name="privacidad"
+					required
+					class="mt-1"
+				/>
+				<label for="privacidad" class="text-sm text-gray-600 dark:text-gray-400">
+					He leído y acepto las condiciones del <span id="open-legal-link" class="text-yellow-600 dark:text-yellow-400 hover:underline cursor-pointer">Aviso legal y la política de privacidad</span>
+				</label>
+			</div>
+
+			<div>
+				<button
+					type="submit"
+					class="px-6 py-3 bg-yellow-200 hover:bg-yellow-300 text-gray-800 font-medium rounded-lg transition-colors inline-flex items-center gap-2"
+				>
+					Enviar
+				</button>
+			</div>
+			
+			<p class="text-sm text-gray-500 dark:text-gray-400">
+				Te respondemos en menos de 24 horas.
+			</p>
+			</form>
+		</div>
+	</div>
+</div>
+
+<LegalModal />
+
+<script is:inline>
+	function initLegalLink() {
+		const legalLink = document.getElementById('open-legal-link');
+		if (legalLink) {
+			legalLink.addEventListener('click', () => {
+				if (window.openLegalModal) {
+					window.openLegalModal();
+				}
+			});
+		}
+	}
+
+	// Ejecutar en la carga inicial
+	initLegalLink();
+	
+	// Re-ejecutar después de cada navegación con View Transitions
+	document.addEventListener('astro:page-load', initLegalLink);
+</script> 

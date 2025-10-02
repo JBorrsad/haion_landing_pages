@@ -139,7 +139,34 @@ const navItems = [
 <script>
   document.addEventListener("astro:page-load", () => {
     const sections = document.querySelectorAll("section")
-    const navItems = document.querySelectorAll("header nav a")
+    const navItems = document.querySelectorAll("header nav a[data-section]")
+    const currentPath = window.location.pathname
+    const isMainPage = currentPath === "/haion_landing_pages/" || currentPath === "/haion_landing_pages/index.html" || currentPath === "/haion_landing"
+    
+    // Función para actualizar el resaltado según la página actual
+    const updateActiveNav = () => {
+      navItems.forEach((item) => {
+        const itemLabel = item.getAttribute("data-section")
+        item.classList.remove("text-yellow-600", "font-bold")
+        
+        // Resaltar según la página actual (excepto contacto y página principal)
+        if (currentPath.includes("/fiscal") && itemLabel === "fiscal") {
+          item.classList.add("text-yellow-600", "font-bold")
+        } else if (currentPath.includes("/laboral") && itemLabel === "laboral") {
+          item.classList.add("text-yellow-600", "font-bold")
+        } else if (currentPath.includes("/contable") && itemLabel === "contable") {
+          item.classList.add("text-yellow-600", "font-bold")
+        } else if (currentPath.includes("/servicios") && itemLabel === "servicios") {
+          item.classList.add("text-yellow-600", "font-bold")
+        }
+        // Nota: No resaltar contacto nunca
+      })
+    }
+    
+    // Actualizar resaltado inicial basado en la página (solo si NO es la página principal)
+    if (!isMainPage) {
+      updateActiveNav()
+    }
     
     // Mobile menu functionality
     const mobileMenuToggle = document.getElementById("mobile-menu-toggle")
@@ -205,39 +232,48 @@ const navItems = [
       item.addEventListener("click", handleNavClick)
     })
 
-    const callback = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-yellow-600", "font-bold")
-            } else {
-              item.classList.remove("text-yellow-600", "font-bold")
-            }
-          })
-        }
-      })
-    }
-
-    const observer = new IntersectionObserver(callback, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
-    })
-
-    sections.forEach((section) => {
-      observer.observe(section)
-    })
-
-    // Cleanup function
-    document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
-        observer.disconnect()
-      } else {
+    // Sistema de resaltado para la página principal (secciones con scroll)
+    if (isMainPage) {
+      const updateActiveSection = () => {
+        const scrollPosition = window.scrollY + window.innerHeight / 2 // Mitad de la pantalla
+        
+        let activeSection = ''
+        
+        // Recorrer todas las secciones y encontrar cuál está en la mitad de la pantalla
         sections.forEach((section) => {
-          observer.observe(section)
+          if (section.id) {
+            const sectionTop = section.offsetTop
+            const sectionBottom = sectionTop + section.offsetHeight
+            
+            // Si la mitad de la pantalla está dentro de esta sección
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+              activeSection = section.id
+            }
+          }
+        })
+        
+        // Actualizar el resaltado del navbar (o limpiar todo si no hay sección activa)
+        navItems.forEach((item) => {
+          const itemLabel = item.getAttribute("aria-label")
+          
+          if (activeSection && itemLabel === activeSection) {
+            item.classList.add("text-yellow-600", "font-bold")
+          } else {
+            item.classList.remove("text-yellow-600", "font-bold")
+          }
         })
       }
+      
+      // Ejecutar al hacer scroll
+      window.addEventListener("scroll", updateActiveSection, { passive: true })
+      
+      // Ejecutar al cargar la página
+      updateActiveSection()
+      
+      // Cleanup
+      document.addEventListener("astro:before-preparation", () => {
+        window.removeEventListener("scroll", updateActiveSection)
+      })
     }
   })
 </script>
