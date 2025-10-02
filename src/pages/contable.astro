@@ -118,7 +118,7 @@ import TitleSection from "@/components/TitleSection.astro"
           </div>
             
           <!-- CTA -->
-          <div class="text-center">
+          <div class="text-center mb-16">
             <div class="bg-yellow-50 dark:bg-yellow-900/20 p-8 rounded-2xl border border-yellow-200 dark:border-yellow-700">
               <h3 class="h3 mb-4">
                 ¿Listo para tomar decisiones estratégicas con datos claros?
@@ -132,6 +132,71 @@ import TitleSection from "@/components/TitleSection.astro"
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>
               </a>
+            </div>
+          </div>
+
+          <!-- Otros servicios -->
+          <div>
+            <h2 class="h2 mb-8 md:mb-10 text-center">
+              Otros servicios que pueden interesarte
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Asesoría Fiscal -->
+              <article class="card p-6 hover:shadow-lg transition-shadow relative overflow-hidden">
+                <div class="flex gap-8 items-center min-h-[150px]">
+                  <div class="flex-shrink-0 w-20 h-20 opacity-40 pointer-events-none flex items-center justify-center">
+                    <svg class="w-full h-full text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="text-decoration: line-through; text-decoration-color: rgba(0,0,0,0.3);">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M9 14c0 1.657 2.686 3 6 3s6 -1.343 6 -3s-2.686 -3 -6 -3s-6 1.343 -6 3z" />
+                      <path d="M9 14v4c0 1.656 2.686 3 6 3s6 -1.344 6 -3v-4" />
+                      <path d="M3 6c0 1.072 1.144 2.062 3 2.598s4.144 .536 6 0c1.856 -.536 3 -1.526 3 -2.598c0 -1.072 -1.144 -2.062 -3 -2.598s-4.144 -.536 -6 0c-1.856 .536 -3 1.526 -3 2.598z" />
+                      <path d="M3 6v10c0 .888 .772 1.45 2 2" />
+                      <path d="M3 11c0 .888 .772 1.45 2 2" />
+                    </svg>
+                  </div>
+                  
+                  <div class="flex-1">
+                    <h3 class="h3 mb-3">Fiscal</h3>
+                    <p class="text-body text-sm mb-4">
+                      Optimización fiscal, declaraciones y planificación estratégica.
+                    </p>
+                    <a href="/haion_landing_pages/fiscal" class="btn-secondary">
+                      Conoce más
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Asesoría Laboral -->
+              <article class="card p-6 hover:shadow-lg transition-shadow relative overflow-hidden">
+                <div class="flex gap-8 items-center min-h-[150px]">
+                  <div class="flex-shrink-0 w-20 h-20 opacity-40 pointer-events-none flex items-center justify-center">
+                    <svg class="w-full h-full text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="text-decoration: line-through; text-decoration-color: rgba(0,0,0,0.3);">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                      <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                      <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+                    </svg>
+                  </div>
+                  
+                  <div class="flex-1">
+                    <h3 class="h3 mb-3">Laboral</h3>
+                    <p class="text-body text-sm mb-4">
+                      Gestión de nóminas, contratos y cumplimiento laboral.
+                    </p>
+                    <a href="/haion_landing_pages/laboral" class="btn-secondary">
+                      Conoce más
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
     </SectionContainer>

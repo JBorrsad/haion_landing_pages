@@ -118,7 +118,7 @@ import TitleSection from "@/components/TitleSection.astro"
           </div>
             
           <!-- CTA -->
-          <div class="text-center">
+          <div class="text-center mb-16">
             <div class="bg-yellow-50 dark:bg-yellow-900/20 p-8 rounded-2xl border border-yellow-200 dark:border-yellow-700">
               <h3 class="h3 mb-4">
                 ¿Listo para optimizar tu carga fiscal?
@@ -132,6 +132,77 @@ import TitleSection from "@/components/TitleSection.astro"
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>
               </a>
+            </div>
+          </div>
+
+          <!-- Otros servicios -->
+          <div>
+            <h2 class="h2 mb-8 md:mb-10 text-center">
+              Otros servicios que pueden interesarte
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Asesoría Laboral -->
+              <article class="card p-6 hover:shadow-lg transition-shadow relative overflow-hidden">
+                <div class="flex gap-8 items-center min-h-[150px]">
+                  <div class="flex-shrink-0 w-20 h-20 opacity-40 pointer-events-none flex items-center justify-center">
+                    <svg class="w-full h-full text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="text-decoration: line-through; text-decoration-color: rgba(0,0,0,0.3);">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                      <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                      <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+                    </svg>
+                  </div>
+                  
+                  <div class="flex-1">
+                    <h3 class="h3 mb-3">Laboral</h3>
+                    <p class="text-body text-sm mb-4">
+                      Gestión de nóminas, contratos y cumplimiento laboral.
+                    </p>
+                    <a href="/haion_landing_pages/laboral" class="btn-secondary">
+                      Conoce más
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Asesoría Contable -->
+              <article class="card p-6 hover:shadow-lg transition-shadow relative overflow-hidden">
+                <div class="flex gap-8 items-center min-h-[150px]">
+                  <div class="flex-shrink-0 w-20 h-20 opacity-40 pointer-events-none flex items-center justify-center">
+                    <svg class="w-full h-full text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="text-decoration: line-through; text-decoration-color: rgba(0,0,0,0.3);">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M5 3v18" />
+                      <path d="M19 21v-18" />
+                      <path d="M5 7h14" />
+                      <path d="M5 15h14" />
+                      <path d="M8 13v4" />
+                      <path d="M11 13v4" />
+                      <path d="M16 13v4" />
+                      <path d="M14 5v4" />
+                      <path d="M11 5v4" />
+                      <path d="M8 5v4" />
+                      <path d="M3 21h18" />
+                    </svg>
+                  </div>
+                  
+                  <div class="flex-1">
+                    <h3 class="h3 mb-3">Contable</h3>
+                    <p class="text-body text-sm mb-4">
+                      Contabilidad clara, balances y decisiones estratégicas.
+                    </p>
+                    <a href="/haion_landing_pages/contable" class="btn-secondary">
+                      Conoce más
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
     </SectionContainer>
