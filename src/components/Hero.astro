@@ -5,7 +5,7 @@
   <!-- Imagen de fondo fija -->
   <div class="fixed inset-0 z-0 hero-image">
     <img 
-      src="/haion_landing_pages/bg.jpg" 
+      src="/bg.jpg" 
       alt="Asesoría profesional" 
       class="w-full h-full object-cover"
     />
@@ -46,7 +46,7 @@
         
         <div class="flex flex-col sm:flex-row gap-4">
           <a
-            href="/haion_landing_pages/contacto"
+            href="/contacto"
             class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-yellow-200 text-gray-800 hover:bg-yellow-300 font-semibold rounded-lg transition-colors text-base text-center"
           >
             <svg class="size-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -56,7 +56,7 @@
           </a>
           
           <a
-            href="/haion_landing_pages/#servicios"
+            href="/#servicios"
             class="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold rounded-lg transition-colors text-base text-center"
           >
             <span>Ver nuestros servicios</span>
@@ -160,7 +160,7 @@
 <script is:inline>
 	function initHeroReveal() {
 		const currentPath = window.location.pathname;
-		const isMainPage = currentPath === '/haion_landing_pages/' || currentPath === '/haion_landing_pages/index.html' || currentPath === '/haion_landing';
+		const isMainPage = currentPath === '/' || currentPath === '/index.html';
 		
 		// Solo ejecutar animación en la página principal
 		if (isMainPage) {

@@ -10,10 +10,9 @@ export default defineConfig({
     sitemap(),
     robotsTxt({
       policy: [{ userAgent: "*", allow: "/" }],
-      sitemap:
-        "https://jborrsad.github.io/haion_landing_pages/sitemap-index.xml",
+      sitemap: "https://haion-consulting.es/sitemap-index.xml",
     }),
   ],
-  site: "https://jborrsad.github.io/haion_landing_pages/",
-  base: "/haion_landing_pages",
+  site: "https://haion-consulting.es/",
+  trailingSlash: "ignore",
 });

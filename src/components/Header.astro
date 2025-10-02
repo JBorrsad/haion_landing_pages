@@ -5,27 +5,27 @@ const navItems = [
   {
     title: "Nosotros",
     label: "sobre-nosotros",
-    url: "/haion_landing_pages/#sobre-nosotros",
+    url: "/#sobre-nosotros",
   },
   {
     title: "Servicios",
     label: "servicios",
-    url: "/haion_landing_pages/#servicios",
+    url: "/#servicios",
   },
   {
     title: "Fiscal",
     label: "fiscal",
-    url: "/haion_landing_pages/fiscal",
+    url: "/fiscal",
   },
   {
     title: "Laboral",
     label: "laboral",
-    url: "/haion_landing_pages/laboral",
+    url: "/laboral",
   },
   {
     title: "Contable",
     label: "contable",
-    url: "/haion_landing_pages/contable",
+    url: "/contable",
   },
 ]
 ---
@@ -37,7 +37,7 @@ const navItems = [
   <div class="hidden md:flex items-center justify-between w-full px-4 py-3 mx-auto">
     <!-- Logo -->
     <div class="flex items-center">
-      <a href="/haion_landing_pages/" id="logo-link-desktop" class="flex items-center">
+      <a href="/" id="logo-link-desktop" class="flex items-center">
         <Logo class="w-28 h-auto text-gray-800" />
       </a>
     </div>
@@ -61,7 +61,7 @@ const navItems = [
       
       <!-- Contact Button -->
       <a
-        href="/haion_landing_pages/contacto"
+        href="/contacto"
         class="px-4 py-2 bg-yellow-200 text-gray-800 font-medium rounded-full hover:bg-yellow-300 transition-colors uppercase tracking-wide text-sm"
       >
         Contacto
@@ -96,7 +96,7 @@ const navItems = [
 
       <!-- Logo centered -->
       <div class="flex items-center">
-        <a href="/haion_landing_pages/" id="logo-link-mobile" class="flex items-center">
+        <a href="/" id="logo-link-mobile" class="flex items-center">
           <Logo class="w-24 h-auto text-gray-800" />
         </a>
       </div>
@@ -126,7 +126,7 @@ const navItems = [
         
         <!-- Mobile Contact Button -->
         <a
-          href="/haion_landing_pages/contacto"
+          href="/contacto"
           class="block py-3 px-4 bg-yellow-200 text-gray-800 font-medium rounded-lg hover:bg-yellow-300 transition-colors uppercase tracking-wide text-center mt-4"
         >
           Contacto
@@ -141,7 +141,7 @@ const navItems = [
     const sections = document.querySelectorAll("section")
     const navItems = document.querySelectorAll("header nav a[data-section]")
     const currentPath = window.location.pathname
-    const isMainPage = currentPath === "/haion_landing_pages/" || currentPath === "/haion_landing_pages/index.html" || currentPath === "/haion_landing"
+    const isMainPage = currentPath === "/" || currentPath === "/index.html"
     
     // Event listener para el logo - activar animación
     const logoDesktop = document.getElementById('logo-link-desktop');
@@ -228,8 +228,8 @@ const navItems = [
       const target = e.target as HTMLAnchorElement
       const href = target.getAttribute("href")
       
-      // Solo manejar enlaces internos que empiecen con /haion_landing_pages/#
-      if (href && href.includes("#") && (window.location.pathname === "/haion_landing_pages/" || window.location.pathname === "/haion_landing")) {
+      // Solo manejar enlaces internos que empiecen con /#
+      if (href && href.includes("#") && (window.location.pathname === "/" || window.location.pathname === "/index.html")) {
         e.preventDefault()
         const sectionId = href.split("#")[1] // Obtener la parte después del #
         const section = document.getElementById(sectionId)
