@@ -136,162 +136,113 @@ const navItems = [
   </div>
 </header>
 
-<script>
-  document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section")
-    const navItems = document.querySelectorAll("header nav a[data-section]")
-    const currentPath = window.location.pathname
-    const isMainPage = currentPath === "/" || currentPath === "/index.html"
-    
-    // Event listener para el logo - activar animación
-    const logoDesktop = document.getElementById('logo-link-desktop');
-    const logoMobile = document.getElementById('logo-link-mobile');
-    
-    const handleLogoClick = () => {
-      sessionStorage.setItem('animate-hero', 'true');
-    };
-    
-    if (logoDesktop) {
-      logoDesktop.addEventListener('click', handleLogoClick);
-    }
-    
-    if (logoMobile) {
-      logoMobile.addEventListener('click', handleLogoClick);
-    }
-    
-    // Función para actualizar el resaltado según la página actual
-    const updateActiveNav = () => {
-      navItems.forEach((item) => {
-        const itemLabel = item.getAttribute("data-section")
-        item.classList.remove("text-yellow-600", "font-bold")
-        
-        // Resaltar según la página actual (excepto contacto y página principal)
-        if (currentPath.includes("/fiscal") && itemLabel === "fiscal") {
-          item.classList.add("text-yellow-600", "font-bold")
-        } else if (currentPath.includes("/laboral") && itemLabel === "laboral") {
-          item.classList.add("text-yellow-600", "font-bold")
-        } else if (currentPath.includes("/contable") && itemLabel === "contable") {
-          item.classList.add("text-yellow-600", "font-bold")
-        } else if (currentPath.includes("/servicios") && itemLabel === "servicios") {
-          item.classList.add("text-yellow-600", "font-bold")
-        }
-        // Nota: No resaltar contacto nunca
-      })
-    }
-    
-    // Actualizar resaltado inicial basado en la página (solo si NO es la página principal)
-    if (!isMainPage) {
-      updateActiveNav()
-    }
-    
-    // Mobile menu functionality
-    const mobileMenuToggle = document.getElementById("mobile-menu-toggle")
-    const mobileMenu = document.getElementById("mobile-menu")
-    
-    if (mobileMenuToggle && mobileMenu) {
-      mobileMenuToggle.addEventListener("click", () => {
-        const isHidden = mobileMenu.classList.contains("hidden")
-        
-        if (isHidden) {
-          mobileMenu.classList.remove("hidden")
-          mobileMenuToggle.innerHTML = `
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          `
-        } else {
-          mobileMenu.classList.add("hidden")
-          mobileMenuToggle.innerHTML = `
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          `
-        }
-      })
-      
-      // Close mobile menu when clicking on a link
-      const mobileNavLinks = mobileMenu.querySelectorAll("a")
-      mobileNavLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden")
-          mobileMenuToggle.innerHTML = `
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-          `
-        })
-      })
-    }
-
-    // Función para scroll suave a las secciones (solo en la página principal)
-    const handleNavClick = (e: Event) => {
-      const target = e.target as HTMLAnchorElement
-      const href = target.getAttribute("href")
-      
-      // Solo manejar enlaces internos que empiecen con /#
-      if (href && href.includes("#") && (window.location.pathname === "/" || window.location.pathname === "/index.html")) {
-        e.preventDefault()
-        const sectionId = href.split("#")[1] // Obtener la parte después del #
-        const section = document.getElementById(sectionId)
-        if (section) {
-          section.scrollIntoView({ 
-            behavior: "smooth",
-            block: "start"
-          })
-        }
-      }
-      // Para otros enlaces, dejar que se comporten normalmente
-    }
-
-    // Agregar event listeners a los enlaces de navegación
-    navItems.forEach((item) => {
-      item.addEventListener("click", handleNavClick)
-    })
-
-    // Sistema de resaltado para la página principal (secciones con scroll)
-    if (isMainPage) {
-      const updateActiveSection = () => {
-        const scrollPosition = window.scrollY + window.innerHeight / 2 // Mitad de la pantalla
-        
-        let activeSection = ''
-        
-        // Recorrer todas las secciones y encontrar cuál está en la mitad de la pantalla
-        sections.forEach((section) => {
-          if (section.id) {
-            const sectionTop = section.offsetTop
-            const sectionBottom = sectionTop + section.offsetHeight
-            
-            // Si la mitad de la pantalla está dentro de esta sección
-            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-              activeSection = section.id
-            }
-          }
-        })
-        
-        // Actualizar el resaltado del navbar (o limpiar todo si no hay sección activa)
-        navItems.forEach((item) => {
-          const itemLabel = item.getAttribute("aria-label")
-          
-          if (activeSection && itemLabel === activeSection) {
-            item.classList.add("text-yellow-600", "font-bold")
-          } else {
-            item.classList.remove("text-yellow-600", "font-bold")
-          }
-        })
-      }
-      
-      // Ejecutar al hacer scroll
-      window.addEventListener("scroll", updateActiveSection, { passive: true })
-      
-      // Ejecutar al cargar la página
-      updateActiveSection()
-      
-      // Cleanup
-      document.addEventListener("astro:before-preparation", () => {
-        window.removeEventListener("scroll", updateActiveSection)
-      })
-    }
-  })
+<script is:inline>
+	function initNavbar() {
+		const path = window.location.pathname
+		const isHome = path === "/" || path === "/index.html"
+		
+		// Obtener TODOS los links (desktop + mobile)
+		const allLinks = document.querySelectorAll('a[data-section]')
+		
+		console.log('navbar cargado')
+		console.log('ruta:', path)
+		console.log('links:', allLinks.length)
+		
+		// Logo animation
+		const logos = document.querySelectorAll('#logo-link-desktop, #logo-link-mobile')
+		logos.forEach(logo => {
+			logo?.addEventListener('click', () => {
+				sessionStorage.setItem('animate-hero', 'true')
+			})
+		})
+		
+		// Mobile menu
+		const toggle = document.getElementById("mobile-menu-toggle")
+		const menu = document.getElementById("mobile-menu")
+		
+		if (toggle && menu) {
+			toggle.addEventListener("click", () => {
+				menu.classList.toggle("hidden")
+				toggle.innerHTML = menu.classList.contains("hidden")
+					? '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>'
+					: '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>'
+			})
+			
+			menu.querySelectorAll("a").forEach(link => {
+				link.addEventListener("click", () => {
+					menu.classList.add("hidden")
+					toggle.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>'
+				})
+			})
+		}
+		
+		// Resaltar link activo
+		function setActive(section) {
+			allLinks.forEach(link => {
+				const label = link.getAttribute('aria-label')
+				if (label === section) {
+					link.classList.add("text-yellow-600", "font-bold")
+					console.log('resaltado:', section)
+				} else {
+					link.classList.remove("text-yellow-600", "font-bold")
+				}
+			})
+		}
+		
+		// Paginas especificas
+		if (!isHome) {
+			if (path.includes("/fiscal")) setActive("fiscal")
+			else if (path.includes("/laboral")) setActive("laboral")
+			else if (path.includes("/contable")) setActive("contable")
+		}
+		
+		// Pagina principal: scroll spy
+		if (isHome) {
+			const sections = document.querySelectorAll("section[id]")
+			console.log('secciones:', sections.length)
+			
+			function checkScroll() {
+				const scroll = window.scrollY + 200
+				let active = ""
+				
+				sections.forEach(section => {
+					const top = section.offsetTop
+					const bottom = top + section.offsetHeight
+					
+					if (scroll >= top && scroll < bottom) {
+						active = section.id
+					}
+				})
+				
+				if (active) setActive(active)
+			}
+			
+			window.addEventListener("scroll", checkScroll)
+			checkScroll()
+			
+			// Scroll suave
+			allLinks.forEach(link => {
+				link.addEventListener("click", e => {
+					const href = link.getAttribute("href")
+					if (href?.includes("#")) {
+						e.preventDefault()
+						const id = href.split("#")[1]
+						document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+					}
+				})
+			})
+		}
+	}
+	
+	// Ejecutar al cargar
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initNavbar)
+	} else {
+		initNavbar()
+	}
+	
+	// Ejecutar en navegacion Astro
+	document.addEventListener('astro:page-load', initNavbar)
 </script>
 
 <style>
