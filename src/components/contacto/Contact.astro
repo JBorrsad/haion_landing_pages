@@ -3,12 +3,15 @@ import MailIcon from "@/components/shared/icons/Mail.astro"
 import WhatsAppIcon from "@/components/shared/icons/WhatsApp.astro"
 import LinkedInIcon from "@/components/shared/icons/LinkedIn.astro"
 import LegalModal from "@/components/shared/LegalModal.astro"
+import { loadContent } from '@/lib/cms'
+
+const content = loadContent('contacto')
 ---
 
 <div>
 	<div class="mb-12">
 		<h2 class="h2">
-			Contáctanos
+			{content.title}
 		</h2>
 	</div>
 
@@ -23,8 +26,8 @@ import LegalModal from "@/components/shared/LegalModal.astro"
 					</svg>
 				</div>
 				<div>
-					<h3 class="font-semibold text-gray-900 dark:text-white">Ubicación</h3>
-					<p class="text-sm text-gray-600 dark:text-gray-400">C/ Provincias 5, 1ª Planta<br>31002 Pamplona, Navarra</p>
+					<h3 class="font-semibold text-gray-900 dark:text-white">{content.ubicacion.title}</h3>
+					<p class="text-sm text-gray-600 dark:text-gray-400" set:html={content.ubicacion.address}></p>
 				</div>
 			</div>
 
@@ -35,28 +38,28 @@ import LegalModal from "@/components/shared/LegalModal.astro"
 					</svg>
 				</div>
 				<div>
-					<h3 class="font-semibold text-gray-900 dark:text-white">Teléfono</h3>
+					<h3 class="font-semibold text-gray-900 dark:text-white">{content.telefono.title}</h3>
 					<div class="text-sm text-gray-600 dark:text-gray-400">
-						<p>620 327 299</p>
+						<p>{content.telefono.number}</p>
 					</div>
 				</div>
 			</div>
 
 			<a
-				href="mailto:info@haion-consulting.es"
+				href={content.email.link}
 				class="card flex items-center gap-4 p-4 hover:shadow-lg transition-shadow"
 			>
 				<div class="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-100 dark:bg-yellow-900/20">
 					<MailIcon class="size-6 text-yellow-600 dark:text-yellow-400" />
 				</div>
 				<div>
-					<h3 class="font-semibold text-gray-900 dark:text-white">Email</h3>
-					<p class="text-sm text-gray-600 dark:text-gray-400">info@haion-consulting.es</p>
+					<h3 class="font-semibold text-gray-900 dark:text-white">{content.email.title}</h3>
+					<p class="text-sm text-gray-600 dark:text-gray-400">{content.email.address}</p>
 				</div>
 			</a>
 
 			<a
-				href="https://wa.me/34620327299"
+				href={content.whatsapp.link}
 				target="_blank"
 				rel="noopener noreferrer"
 				class="card flex items-center gap-4 p-4 hover:shadow-lg transition-shadow"
@@ -65,13 +68,13 @@ import LegalModal from "@/components/shared/LegalModal.astro"
 					<WhatsAppIcon class="size-6 text-yellow-600 dark:text-yellow-400" />
 				</div>
 				<div>
-					<h3 class="font-semibold text-gray-900 dark:text-white">WhatsApp</h3>
-					<p class="text-sm text-gray-600 dark:text-gray-400">620 327 299</p>
+					<h3 class="font-semibold text-gray-900 dark:text-white">{content.whatsapp.title}</h3>
+					<p class="text-sm text-gray-600 dark:text-gray-400">{content.whatsapp.number}</p>
 				</div>
 			</a>
 
 			<a
-				href="https://www.linkedin.com/company/haionconsulting/"
+				href={content.linkedin.url}
 				target="_blank"
 				rel="noopener noreferrer"
 				class="card flex items-center gap-4 p-4 hover:shadow-lg transition-shadow"
@@ -80,8 +83,8 @@ import LegalModal from "@/components/shared/LegalModal.astro"
 					<LinkedInIcon class="size-6 text-yellow-600 dark:text-yellow-400" />
 				</div>
 				<div>
-					<h3 class="font-semibold text-gray-900 dark:text-white">LinkedIn</h3>
-					<p class="text-sm text-gray-600 dark:text-gray-400">Haion Consulting</p>
+					<h3 class="font-semibold text-gray-900 dark:text-white">{content.linkedin.title}</h3>
+					<p class="text-sm text-gray-600 dark:text-gray-400">{content.linkedin.label}</p>
 				</div>
 			</a>
 		</div>
@@ -90,80 +93,79 @@ import LegalModal from "@/components/shared/LegalModal.astro"
 		<div class="card p-8">
 			<div class="mb-6">
 				<p class="text-sm text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-2">
-					¿TIENES ALGUNA DUDA?
+					{content.form.sectionTitle}
 				</p>
 			</div>
 			<form class="space-y-6">
 				<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+					<div>
+						<input
+							type="text"
+							id="nombre"
+							name="nombre"
+							required
+							placeholder={content.form.nombrePlaceholder}
+							class="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-yellow-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors"
+						/>
+					</div>
+					
+					<div>
+						<input
+							type="email"
+							id="email"
+							name="email"
+							required
+							placeholder={content.form.emailPlaceholder}
+							class="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-yellow-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors"
+						/>
+					</div>
+
+					<div>
+						<input
+							type="tel"
+							id="telefono"
+							name="telefono"
+							required
+							placeholder={content.form.telefonoPlaceholder}
+							class="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-yellow-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors"
+						/>
+					</div>
+				</div>
+
 				<div>
+					<textarea
+						id="mensaje"
+						name="mensaje"
+						rows="6"
+						placeholder={content.form.mensajePlaceholder}
+						class="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-yellow-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors resize-vertical"
+					></textarea>
+				</div>
+
+				<div class="flex items-start gap-2">
 					<input
-						type="text"
-						id="nombre"
-						name="nombre"
+						type="checkbox"
+						id="privacidad"
+						name="privacidad"
 						required
-						placeholder="Nombre"
-						class="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-yellow-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors"
+						class="mt-1"
 					/>
+					<label for="privacidad" class="text-sm text-gray-600 dark:text-gray-400" set:html={content.form.privacyLabel}>
+					</label>
+				</div>
+
+				<div>
+					<button
+						type="submit"
+						class="px-6 py-3 bg-yellow-200 hover:bg-yellow-300 text-gray-800 font-medium rounded-lg transition-colors inline-flex items-center gap-2"
+					>
+						{content.form.buttonText}
+					</button>
 				</div>
 				
-				<div>
-					<input
-						type="email"
-						id="email"
-						name="email"
-						required
-						placeholder="Email"
-						class="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-yellow-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors"
-					/>
-				</div>
-
-				<div>
-					<input
-						type="tel"
-						id="telefono"
-						name="telefono"
-						required
-						placeholder="Teléfono"
-						class="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-yellow-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors"
-					/>
-				</div>
-			</div>
-
-			<div>
-				<textarea
-					id="mensaje"
-					name="mensaje"
-					rows="6"
-					placeholder="Mensaje"
-					class="w-full px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:border-yellow-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-colors resize-vertical"
-				></textarea>
-			</div>
-
-			<div class="flex items-start gap-2">
-				<input
-					type="checkbox"
-					id="privacidad"
-					name="privacidad"
-					required
-					class="mt-1"
-				/>
-				<label for="privacidad" class="text-sm text-gray-600 dark:text-gray-400">
-					He leído y acepto las condiciones del <span id="open-legal-link" class="text-yellow-600 dark:text-yellow-400 hover:underline cursor-pointer">Aviso legal y la política de privacidad</span>
-				</label>
-			</div>
-
-			<div>
-				<button
-					type="submit"
-					class="px-6 py-3 bg-yellow-200 hover:bg-yellow-300 text-gray-800 font-medium rounded-lg transition-colors inline-flex items-center gap-2"
-				>
-					Enviar
-				</button>
-			</div>
-			
-			<p class="text-sm text-gray-500 dark:text-gray-400">
-				Te respondemos en menos de 24 horas.
-			</p>
+				<p class="text-sm text-gray-500 dark:text-gray-400">
+					{content.form.footer}
+				</p>
 			</form>
 		</div>
 	</div>

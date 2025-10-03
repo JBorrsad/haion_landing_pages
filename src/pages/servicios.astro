@@ -3,18 +3,21 @@ import Layout from "@/layouts/Layout.astro"
 import SectionContainer from "@/components/shared/ui/SectionContainer.astro"
 import TitleSection from "@/components/shared/ui/TitleSection.astro"
 import ServicesSimple from "@/components/servicios/ServicesSimple.astro"
+import { loadContent } from '@/lib/cms'
+
+const content = loadContent('servicios')
 ---
 
 <Layout
-  title="Servicios - Haion Consulting"
-  description="Descubre todos nuestros servicios de asesoría fiscal, laboral y contable. Soluciones integrales para empresas."
+	title="Servicios - Haion Consulting"
+	description="Descubre todos nuestros servicios de asesoría fiscal, laboral y contable. Soluciones integrales para empresas."
 >
-  <main>
-    <SectionContainer variant="plain">
-      <TitleSection>
-        Nuestros Servicios
-      </TitleSection>
-      <ServicesSimple />
-    </SectionContainer>
-  </main>
+	<main>
+		<SectionContainer variant="plain">
+			<TitleSection>
+				{content.title}
+			</TitleSection>
+			<ServicesSimple />
+		</SectionContainer>
+	</main>
 </Layout>

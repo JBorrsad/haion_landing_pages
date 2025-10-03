@@ -6,93 +6,66 @@ import ServiceBenefitCard from "@/components/shared/services/ServiceBenefitCard.
 import ServiceCard from "@/components/shared/services/ServiceCard.astro"
 import ServiceCTA from "@/components/shared/services/ServiceCTA.astro"
 import RelatedServiceCard from "@/components/shared/services/RelatedServiceCard.astro"
+import { loadContent } from '@/lib/cms'
 
-const benefits = [
-	"Cumplimiento con la normativa laboral vigente.",
-	"Reducción de riesgos laborales y legales.",
-	"Mejora de la productividad y satisfacción de tus empleados.",
-	"Ahorro de tiempo y recursos en gestión de personal."
-]
-
-const services = [
-	{
-		title: "Gestión de nóminas y seguros sociales",
-		description: "Nos ocupamos de que tus empleados reciban sus nóminas a tiempo y de acuerdo con la legislación."
-	},
-	{
-		title: "Contrataciones y despidos",
-		description: "Te asesoramos en la contratación y despido de empleados, asegurando que todo el proceso sea legal y eficiente."
-	},
-	{
-		title: "Defensa ante inspecciones de trabajo",
-		description: "En caso de ser inspeccionado, te representamos ante las autoridades laborales."
-	},
-	{
-		title: "Convenios colectivos",
-		description: "Asesoramos sobre los convenios aplicables a tu empresa y cómo negociar las mejores condiciones para tus empleados."
-	}
-]
+const content = loadContent('laboral')
 ---
 
 <Layout
-  title="Asesoría Laboral - Haion Consulting"
-  description="Servicios de asesoría laboral integral. Gestión de nóminas, contratos de trabajo y cumplimiento normativo laboral."
+	title="Asesoría Laboral - Haion Consulting"
+	description="Servicios de asesoría laboral integral. Gestión de nóminas, contratos de trabajo y cumplimiento normativo laboral."
 >
-  <main>
-    <PageHero 
-      title="Cuidamos de tu equipo y aseguramos el cumplimiento normativo."
-      subtitle="La gestión laboral no solo se trata de cumplir con la legislación, sino de crear un ambiente de trabajo sano, legal y eficiente. Te ayudamos a gestionar tu equipo de manera que puedas centrarte en lo que mejor sabes hacer: crecer tu negocio."
-      image="/img/laboral.png"
-    />
+	<main>
+		<PageHero 
+			title={content.hero.title}
+			subtitle={content.hero.subtitle}
+			image={content.hero.image}
+		/>
 
-    <SectionContainer variant="plain">
+		<SectionContainer variant="plain">
 			<!-- Beneficios -->
-          <div class="mb-16">
-            <h2 class="h2 mb-8 md:mb-10 text-center">
-              Beneficios de una buena asesoría laboral
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-					{benefits.map((benefit) => (
+			<div class="mb-16">
+				<h2 class="h2 mb-8 md:mb-10 text-center">
+					{content.benefits.title}
+				</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+					{content.benefits.items.map((benefit) => (
 						<ServiceBenefitCard benefit={benefit} />
 					))}
-            </div>
-          </div>
+				</div>
+			</div>
 
-          <!-- Servicios principales -->
-          <div class="mb-16">
-            <h2 class="h2 mb-8 md:mb-10 text-center">
-              Servicios principales
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-					{services.map((service) => (
+			<!-- Servicios principales -->
+			<div class="mb-16">
+				<h2 class="h2 mb-8 md:mb-10 text-center">
+					{content.services.title}
+				</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					{content.services.items.map((service) => (
 						<ServiceCard title={service.title} description={service.description} />
 					))}
-            </div>
-          </div>
-            
-          <!-- CTA -->
-			<ServiceCTA title="¿Estás listo para mejorar la gestión laboral de tu empresa?" />
+				</div>
+			</div>
+			
+			<!-- CTA -->
+			<ServiceCTA title={content.cta.title} />
 
-          <!-- Otros servicios -->
-          <div>
-            <h2 class="h2 mb-8 md:mb-10 text-center">
-              Otros servicios que pueden interesarte
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-					<RelatedServiceCard
-						title="Fiscal"
-						description="Optimización fiscal, declaraciones y planificación estratégica."
-						href="/fiscal"
-						icon="fiscal"
-					/>
-					<RelatedServiceCard
-						title="Contable"
-						description="Contabilidad clara, balances y decisiones estratégicas."
-						href="/contable"
-						icon="contable"
-					/>
-            </div>
-          </div>
-    </SectionContainer>
+			<!-- Otros servicios -->
+			<div>
+				<h2 class="h2 mb-8 md:mb-10 text-center">
+					{content.related.title}
+				</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+					{content.related.items.map((item) => (
+						<RelatedServiceCard
+							title={item.title}
+							description={item.description}
+							href={item.href}
+							icon={item.icon}
+						/>
+					))}
+				</div>
+			</div>
+		</SectionContainer>
   </main>
 </Layout>

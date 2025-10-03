@@ -6,93 +6,66 @@ import ServiceBenefitCard from "@/components/shared/services/ServiceBenefitCard.
 import ServiceCard from "@/components/shared/services/ServiceCard.astro"
 import ServiceCTA from "@/components/shared/services/ServiceCTA.astro"
 import RelatedServiceCard from "@/components/shared/services/RelatedServiceCard.astro"
+import { loadContent } from '@/lib/cms'
 
-const benefits = [
-	"Toma de decisiones empresariales más informadas.",
-	"Optimización de tus recursos financieros.",
-	"Transparencia ante inversores, bancos y autoridades fiscales.",
-	"Evitación de errores y sanciones contables."
-]
-
-const services = [
-	{
-		title: "Contabilidad clara y rigurosa",
-		description: "Te proporcionamos un análisis detallado y transparente de tus cuentas y balances."
-	},
-	{
-		title: "Elaboración de libros oficiales, balances y cuentas anuales",
-		description: "Cumplimos con todos los requisitos legales y te damos los informes contables necesarios para tu tranquilidad."
-	},
-	{
-		title: "Informes contables personalizados",
-		description: "Generamos informes que te ayudarán a tomar decisiones estratégicas, adaptados a tu tipo de negocio."
-	},
-	{
-		title: "Gestión fiscal simplificada",
-		description: "Integración de la contabilidad con la gestión fiscal para facilitar tu vida empresarial."
-	}
-]
+const content = loadContent('contable')
 ---
 
 <Layout
-  title="Asesoría Contable - Haion Consulting"
-  description="Servicios de asesoría contable integral. Contabilidad, balances, cuentas anuales y gestión fiscal."
+	title="Asesoría Contable - Haion Consulting"
+	description="Servicios de asesoría contable integral. Contabilidad, balances, cuentas anuales y gestión fiscal."
 >
-  <main>
-    <PageHero 
-      title="Tus números no son solo cifras: son decisiones estratégicas."
-      subtitle="La contabilidad es la brújula que guía las decisiones empresariales. Con nuestra asesoría contable, te ayudamos a tener una visión clara y precisa de tus finanzas, para que puedas tomar decisiones basadas en datos reales y no en suposiciones."
-      image="/img/contable.jpg"
-    />
+	<main>
+		<PageHero 
+			title={content.hero.title}
+			subtitle={content.hero.subtitle}
+			image={content.hero.image}
+		/>
 
-    <SectionContainer variant="plain">
+		<SectionContainer variant="plain">
 			<!-- Beneficios -->
-          <div class="mb-16">
-            <h2 class="h2 mb-8 md:mb-10 text-center">
-              Beneficios de una buena asesoría contable
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-					{benefits.map((benefit) => (
+			<div class="mb-16">
+				<h2 class="h2 mb-8 md:mb-10 text-center">
+					{content.benefits.title}
+				</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+					{content.benefits.items.map((benefit) => (
 						<ServiceBenefitCard benefit={benefit} />
 					))}
-            </div>
-          </div>
+				</div>
+			</div>
 
-          <!-- Servicios principales -->
-          <div class="mb-16">
-            <h2 class="h2 mb-8 md:mb-10 text-center">
-              Servicios principales
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-					{services.map((service) => (
+			<!-- Servicios principales -->
+			<div class="mb-16">
+				<h2 class="h2 mb-8 md:mb-10 text-center">
+					{content.services.title}
+				</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					{content.services.items.map((service) => (
 						<ServiceCard title={service.title} description={service.description} />
 					))}
-            </div>
-          </div>
-            
-          <!-- CTA -->
-			<ServiceCTA title="¿Listo para tomar decisiones estratégicas con datos claros?" />
+				</div>
+			</div>
+			
+			<!-- CTA -->
+			<ServiceCTA title={content.cta.title} />
 
-          <!-- Otros servicios -->
-          <div>
-            <h2 class="h2 mb-8 md:mb-10 text-center">
-              Otros servicios que pueden interesarte
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-					<RelatedServiceCard
-						title="Fiscal"
-						description="Optimización fiscal, declaraciones y planificación estratégica."
-						href="/fiscal"
-						icon="fiscal"
-					/>
-					<RelatedServiceCard
-						title="Laboral"
-						description="Gestión de nóminas, contratos y cumplimiento laboral."
-						href="/laboral"
-						icon="laboral"
-					/>
-            </div>
-          </div>
-    </SectionContainer>
+			<!-- Otros servicios -->
+			<div>
+				<h2 class="h2 mb-8 md:mb-10 text-center">
+					{content.related.title}
+				</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+					{content.related.items.map((item) => (
+						<RelatedServiceCard
+							title={item.title}
+							description={item.description}
+							href={item.href}
+							icon={item.icon}
+						/>
+					))}
+				</div>
+			</div>
+		</SectionContainer>
   </main>
 </Layout>

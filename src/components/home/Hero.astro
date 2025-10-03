@@ -1,75 +1,74 @@
 ---
+import { loadContent } from '@/lib/cms'
+
+const content = loadContent('home')
+const hero = content.hero
 ---
 
 <div class="relative min-h-screen flex items-stretch overflow-hidden">
-  <!-- Imagen de fondo fija -->
-  <div class="fixed inset-0 z-0 hero-image">
-    <img 
-      src="/bg.jpg" 
-      alt="Asesoría profesional" 
-      class="w-full h-full object-cover"
-    />
-    <!-- Overlay oscuro para legibilidad -->
-    <div class="absolute inset-0 bg-black/60"></div>
-  </div>
+	<!-- Imagen de fondo fija -->
+	<div class="fixed inset-0 z-0 hero-image">
+		<img 
+			src={hero.image} 
+			alt={hero.imageAlt} 
+			class="w-full h-full object-cover"
+		/>
+		<!-- Overlay oscuro para legibilidad -->
+		<div class="absolute inset-0 bg-black/60"></div>
+	</div>
 
-  <!-- Cortinas de reveal -->
-  <div class="hero-curtain-top fixed top-0 left-0 right-0 z-20 bg-black" style="height: 50vh;"></div>
-  <div class="hero-curtain-bottom fixed bottom-0 left-0 right-0 z-20 bg-black" style="height: 50vh;"></div>
+	<!-- Cortinas de reveal -->
+	<div class="hero-curtain-top fixed top-0 left-0 right-0 z-20 bg-black" style="height: 50vh;"></div>
+	<div class="hero-curtain-bottom fixed bottom-0 left-0 right-0 z-20 bg-black" style="height: 50vh;"></div>
 
-  <!-- Contenido del hero -->
-  <div class="hero-content relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center min-h-screen pt-20 pb-10">
-    
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-      
-      <!-- Lado izquierdo - Título principal ligeramente más arriba -->
-      <div class="text-left">
-        <h1 class="h1 text-white leading-tight mb-6">
-          Asesoría integral para empresas
-        </h1>
-        
-        <!-- 3 puntos clave debajo del título, alineados a la izquierda -->
-        <div class="flex items-center gap-2 md:gap-4 text-base sm:text-lg md:text-xl text-yellow-300 font-medium">
-          <span>Fiscal</span>
-          <span class="text-white">·</span>
-          <span>Laboral</span>
-          <span class="text-white">·</span>
-          <span>Contable</span>
-        </div>
-      </div>
-      
-      <!-- Lado derecho - Subtítulo y botones, más abajo -->
-      <div class="text-left pt-8 lg:pt-32">
-        <p class="text-white mb-8 leading-normal text-sm sm:text-base">
-          Gestionamos tus recursos de forma eficiente y con visión estratégica. En Haion Consulting no solo cumplimos obligaciones: te ofrecemos soluciones que hacen crecer tu negocio.
-        </p>
-        
-        <div class="flex flex-col sm:flex-row gap-4">
-          <a
-            href="/contacto"
-            class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-yellow-200 text-gray-800 hover:bg-yellow-300 font-semibold rounded-lg transition-colors text-base text-center"
-          >
-            <svg class="size-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
-            </svg>
-            <span>Solicita una reunión gratuita</span>
-          </a>
-          
-          <a
-            href="/#servicios"
-            class="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold rounded-lg transition-colors text-base text-center"
-          >
-            <span>Ver nuestros servicios</span>
-            <svg class="size-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-      
-    </div>
-    
-  </div>
+	<!-- Contenido del hero -->
+	<div class="hero-content relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center min-h-screen pt-20 pb-10">
+		
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+			
+			<!-- Lado izquierdo - Título principal ligeramente más arriba -->
+			<div class="text-left">
+				<h1 class="h1 text-white leading-tight mb-6">
+					{hero.title}
+				</h1>
+				
+				<!-- 3 puntos clave debajo del título, alineados a la izquierda -->
+				<div class="flex items-center gap-2 md:gap-4 text-base sm:text-lg md:text-xl text-yellow-300 font-medium" set:html={hero.areas.replace(/·/g, '<span class="text-white">·</span>')}>
+				</div>
+			</div>
+			
+			<!-- Lado derecho - Subtítulo y botones, más abajo -->
+			<div class="text-left pt-8 lg:pt-32">
+				<p class="text-white mb-8 leading-normal text-sm sm:text-base">
+					{hero.description}
+				</p>
+				
+				<div class="flex flex-col sm:flex-row gap-4">
+					<a
+						href={hero.button1Link}
+						class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-yellow-200 text-gray-800 hover:bg-yellow-300 font-semibold rounded-lg transition-colors text-base text-center"
+					>
+						<svg class="size-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+						</svg>
+						<span>{hero.button1Text}</span>
+					</a>
+					
+					<a
+						href={hero.button2Link}
+						class="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold rounded-lg transition-colors text-base text-center"
+					>
+						<span>{hero.button2Text}</span>
+						<svg class="size-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+						</svg>
+					</a>
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
 
   <!-- Indicador de scroll animado -->
   <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
