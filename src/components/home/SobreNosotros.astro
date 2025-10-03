@@ -11,7 +11,7 @@ const sn = content.sobreNosotros
 
 	<!-- Texto completo - ocupa todo el ancho -->
 	<div class="text-body mb-12 md:mb-16">
-		{sn.intro.map((paragraph, index) => (
+		{sn.intro.map((paragraph: string, index: number) => (
 			<p class:list={["lead mb-4", index === sn.intro.length - 1 && "font-medium"]}>
 				{paragraph}
 			</p>
@@ -39,7 +39,7 @@ const sn = content.sobreNosotros
 			<article class="card p-6 flex-1 flex flex-col justify-center">
 				<h3 class="h3 mb-4">{sn.valores.title}</h3>
 				<ul class="text-body space-y-2">
-					{sn.valores.items.map((item) => (
+					{sn.valores.items.map((item: any) => (
 						<li>
 							<span class="font-medium text-yellow-700 dark:text-yellow-400">{item.label}</span> {item.description}
 						</li>

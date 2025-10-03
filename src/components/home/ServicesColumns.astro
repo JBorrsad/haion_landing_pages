@@ -45,7 +45,7 @@ const services = [
 							{service.data.description}
 						</p>
 						<ul class="text-gray-600 dark:text-gray-400 space-y-2 text-sm mb-6">
-							{service.data.items.map((item) => (
+							{service.data.items.map((item: string) => (
 								<li>• {item}</li>
 							))}
 						</ul>

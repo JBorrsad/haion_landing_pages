@@ -29,7 +29,7 @@ const content = loadContent('contable')
 					{content.benefits.title}
 				</h2>
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-					{content.benefits.items.map((benefit) => (
+					{content.benefits.items.map((benefit: string) => (
 						<ServiceBenefitCard benefit={benefit} />
 					))}
 				</div>
@@ -41,7 +41,7 @@ const content = loadContent('contable')
 					{content.services.title}
 				</h2>
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-					{content.services.items.map((service) => (
+					{content.services.items.map((service: any) => (
 						<ServiceCard title={service.title} description={service.description} />
 					))}
 				</div>
@@ -56,7 +56,7 @@ const content = loadContent('contable')
 					{content.related.title}
 				</h2>
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-					{content.related.items.map((item) => (
+					{content.related.items.map((item: any) => (
 						<RelatedServiceCard
 							title={item.title}
 							description={item.description}
