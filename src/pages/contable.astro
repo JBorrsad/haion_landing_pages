@@ -2,6 +2,36 @@
 import Layout from "@/layouts/Layout.astro"
 import SectionContainer from "@/components/SectionContainer.astro"
 import PageHero from "@/components/PageHero.astro"
+import ServiceBenefitCard from "@/components/ServiceBenefitCard.astro"
+import ServiceCard from "@/components/ServiceCard.astro"
+import ServiceCTA from "@/components/ServiceCTA.astro"
+import RelatedServiceCard from "@/components/RelatedServiceCard.astro"
+
+const benefits = [
+	"Toma de decisiones empresariales más informadas.",
+	"Optimización de tus recursos financieros.",
+	"Transparencia ante inversores, bancos y autoridades fiscales.",
+	"Evitación de errores y sanciones contables."
+]
+
+const services = [
+	{
+		title: "Contabilidad clara y rigurosa",
+		description: "Te proporcionamos un análisis detallado y transparente de tus cuentas y balances."
+	},
+	{
+		title: "Elaboración de libros oficiales, balances y cuentas anuales",
+		description: "Cumplimos con todos los requisitos legales y te damos los informes contables necesarios para tu tranquilidad."
+	},
+	{
+		title: "Informes contables personalizados",
+		description: "Generamos informes que te ayudarán a tomar decisiones estratégicas, adaptados a tu tipo de negocio."
+	},
+	{
+		title: "Gestión fiscal simplificada",
+		description: "Integración de la contabilidad con la gestión fiscal para facilitar tu vida empresarial."
+	}
+]
 ---
 
 <Layout
@@ -16,53 +46,15 @@ import PageHero from "@/components/PageHero.astro"
     />
 
     <SectionContainer variant="plain">
-
-          <!-- Beneficios de una buena asesoría contable -->
+			<!-- Beneficios -->
           <div class="mb-16">
             <h2 class="h2 mb-8 md:mb-10 text-center">
               Beneficios de una buena asesoría contable
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <div class="flex items-start gap-4 p-6 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl border border-yellow-200 dark:border-yellow-700">
-                <div class="flex-shrink-0 w-8 h-8 bg-yellow-200 dark:bg-yellow-600 rounded-full flex items-center justify-center mt-1">
-                  <svg class="w-4 h-4 text-yellow-700 dark:text-yellow-200" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  <span class="font-medium">Toma de decisiones empresariales más informadas.</span>
-                </p>
-              </div>
-              <div class="flex items-start gap-4 p-6 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl border border-yellow-200 dark:border-yellow-700">
-                <div class="flex-shrink-0 w-8 h-8 bg-yellow-200 dark:bg-yellow-600 rounded-full flex items-center justify-center mt-1">
-                  <svg class="w-4 h-4 text-yellow-700 dark:text-yellow-200" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  <span class="font-medium">Optimización de tus recursos financieros.</span>
-                </p>
-              </div>
-              <div class="flex items-start gap-4 p-6 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl border border-yellow-200 dark:border-yellow-700">
-                <div class="flex-shrink-0 w-8 h-8 bg-yellow-200 dark:bg-yellow-600 rounded-full flex items-center justify-center mt-1">
-                  <svg class="w-4 h-4 text-yellow-700 dark:text-yellow-200" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  <span class="font-medium">Transparencia ante inversores, bancos y autoridades fiscales.</span>
-                </p>
-              </div>
-              <div class="flex items-start gap-4 p-6 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl border border-yellow-200 dark:border-yellow-700">
-                <div class="flex-shrink-0 w-8 h-8 bg-yellow-200 dark:bg-yellow-600 rounded-full flex items-center justify-center mt-1">
-                  <svg class="w-4 h-4 text-yellow-700 dark:text-yellow-200" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  <span class="font-medium">Evitación de errores y sanciones contables.</span>
-                </p>
-              </div>
+					{benefits.map((benefit) => (
+						<ServiceBenefitCard benefit={benefit} />
+					))}
             </div>
           </div>
 
@@ -72,61 +64,14 @@ import PageHero from "@/components/PageHero.astro"
               Servicios principales
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div class="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
-                <h3 class="h3 mb-4">
-                  Contabilidad clara y rigurosa
-                </h3>
-                <p class="text-body">
-                  Te proporcionamos un análisis detallado y transparente de tus cuentas y balances.
-                </p>
-              </div>
-              
-              <div class="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
-                <h3 class="h3 mb-4">
-                  Elaboración de libros oficiales, balances y cuentas anuales
-                </h3>
-                <p class="text-body">
-                  Cumplimos con todos los requisitos legales y te damos los informes contables necesarios para tu tranquilidad.
-                </p>
-              </div>
-
-              <div class="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
-                <h3 class="h3 mb-4">
-                  Informes contables personalizados
-                </h3>
-                <p class="text-body">
-                  Generamos informes que te ayudarán a tomar decisiones estratégicas, adaptados a tu tipo de negocio.
-                </p>
-              </div>
-
-              <div class="bg-white dark:bg-gray-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
-                <h3 class="h3 mb-4">
-                  Gestión fiscal simplificada
-                </h3>
-                <p class="text-body">
-                  Integración de la contabilidad con la gestión fiscal para facilitar tu vida empresarial.
-                </p>
-              </div>
+					{services.map((service) => (
+						<ServiceCard title={service.title} description={service.description} />
+					))}
             </div>
           </div>
             
           <!-- CTA -->
-          <div class="text-center mb-16">
-            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-8 rounded-2xl border border-yellow-200 dark:border-yellow-700">
-              <h3 class="h3 mb-4">
-                ¿Listo para tomar decisiones estratégicas con datos claros?
-              </h3>
-              <a
-                href="/contacto"
-                class="btn-secondary"
-              >
-                Consulta aquí para más información
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-              </a>
-            </div>
-          </div>
+			<ServiceCTA title="¿Listo para tomar decisiones estratégicas con datos claros?" />
 
           <!-- Otros servicios -->
           <div>
@@ -134,62 +79,18 @@ import PageHero from "@/components/PageHero.astro"
               Otros servicios que pueden interesarte
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <!-- Asesoría Fiscal -->
-              <article class="card p-6 hover:shadow-lg transition-shadow relative overflow-hidden">
-                <div class="flex gap-8 items-center min-h-[150px]">
-                  <div class="flex-shrink-0 w-20 h-20 opacity-40 pointer-events-none flex items-center justify-center">
-                    <svg class="w-full h-full text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="text-decoration: line-through; text-decoration-color: rgba(0,0,0,0.3);">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                      <path d="M9 14c0 1.657 2.686 3 6 3s6 -1.343 6 -3s-2.686 -3 -6 -3s-6 1.343 -6 3z" />
-                      <path d="M9 14v4c0 1.656 2.686 3 6 3s6 -1.344 6 -3v-4" />
-                      <path d="M3 6c0 1.072 1.144 2.062 3 2.598s4.144 .536 6 0c1.856 -.536 3 -1.526 3 -2.598c0 -1.072 -1.144 -2.062 -3 -2.598s-4.144 -.536 -6 0c-1.856 .536 -3 1.526 -3 2.598z" />
-                      <path d="M3 6v10c0 .888 .772 1.45 2 2" />
-                      <path d="M3 11c0 .888 .772 1.45 2 2" />
-                    </svg>
-                  </div>
-                  
-                  <div class="flex-1">
-                    <h3 class="h3 mb-3">Fiscal</h3>
-                    <p class="text-body text-sm mb-4">
-                      Optimización fiscal, declaraciones y planificación estratégica.
-                    </p>
-                    <a href="/fiscal" class="btn-secondary">
-                      Conoce más
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Asesoría Laboral -->
-              <article class="card p-6 hover:shadow-lg transition-shadow relative overflow-hidden">
-                <div class="flex gap-8 items-center min-h-[150px]">
-                  <div class="flex-shrink-0 w-20 h-20 opacity-40 pointer-events-none flex items-center justify-center">
-                    <svg class="w-full h-full text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="text-decoration: line-through; text-decoration-color: rgba(0,0,0,0.3);">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                      <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-                      <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                      <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-                    </svg>
-                  </div>
-                  
-                  <div class="flex-1">
-                    <h3 class="h3 mb-3">Laboral</h3>
-                    <p class="text-body text-sm mb-4">
-                      Gestión de nóminas, contratos y cumplimiento laboral.
-                    </p>
-                    <a href="/laboral" class="btn-secondary">
-                      Conoce más
-                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </article>
+					<RelatedServiceCard
+						title="Fiscal"
+						description="Optimización fiscal, declaraciones y planificación estratégica."
+						href="/fiscal"
+						icon="fiscal"
+					/>
+					<RelatedServiceCard
+						title="Laboral"
+						description="Gestión de nóminas, contratos y cumplimiento laboral."
+						href="/laboral"
+						icon="laboral"
+					/>
             </div>
           </div>
     </SectionContainer>

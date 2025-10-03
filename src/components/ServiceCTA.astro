@@ -1,0 +1,26 @@
+---
+interface Props {
+	title: string
+	buttonText?: string
+}
+
+const { title, buttonText = "Consulta aquí para más información" } = Astro.props
+---
+
+<div class="text-center mb-16">
+	<div class="bg-yellow-50 dark:bg-yellow-900/20 p-8 rounded-2xl border border-yellow-200 dark:border-yellow-700">
+		<h3 class="h3 mb-4">
+			{title}
+		</h3>
+		<a
+			href="/contacto"
+			class="btn-secondary"
+		>
+			{buttonText}
+			<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+			</svg>
+		</a>
+	</div>
+</div>
+

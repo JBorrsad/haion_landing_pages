@@ -217,7 +217,7 @@ const navItems = [
 				link.addEventListener("click", e => {
 					const href = link.getAttribute("href")
 					if (href?.includes("#")) {
-						e.preventDefault()
+        e.preventDefault()
 						const id = href.split("#")[1]
 						document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
 					}
@@ -229,7 +229,7 @@ const navItems = [
 	// Ejecutar al cargar
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', initNavbar)
-	} else {
+          } else {
 		initNavbar()
 	}
 	
