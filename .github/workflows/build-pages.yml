@@ -4,7 +4,7 @@ on:
   # Disparado automáticamente en push a main
   push:
     branches: [main]
-  
+
   # Disparado por la Edge Function vía repository_dispatch
   repository_dispatch:
     types: [cms_update]
@@ -25,7 +25,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,8 +33,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          cache: 'npm'
+          node-version: "18"
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
@@ -43,7 +43,7 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE: ${{ secrets.SUPABASE_SERVICE_ROLE }}
-          DOWNLOAD_ASSETS: 'false'
+          DOWNLOAD_ASSETS: "false"
         run: node scripts/sync-from-supabase.mjs
 
       - name: Build with Astro
@@ -63,7 +63,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
-    
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
