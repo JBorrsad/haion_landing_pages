@@ -10,12 +10,12 @@ export default defineConfig({
 		tailwind(),
 		react(),
 		sitemap({
-			filter: (page) => !page.includes('/admin') && !page.includes('/login'),
+			filter: (page) => !page.includes('/cms'),
 		}),
 		robotsTxt({
 			policy: [
 				{ userAgent: "*", allow: "/" },
-				{ userAgent: "*", disallow: ["/admin", "/login"] }
+				{ userAgent: "*", disallow: ["/cms"] }
 			],
 			sitemap: "https://haion-consulting.es/sitemap-index.xml",
 		}),

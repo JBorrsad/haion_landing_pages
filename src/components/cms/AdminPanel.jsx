@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { supabase } from '../lib/supabaseClient'
-import AdminHome from './admin/AdminHome'
+import { supabase } from '../../lib/supabaseClient'
+import AdminHome from './AdminHome'
 
 const PAGES = [
 	{ id: 'home', label: 'Inicio' },
@@ -35,7 +35,7 @@ export default function AdminNew() {
 
 	const handleLogout = async () => {
 		await supabase.auth.signOut()
-		window.location.href = '/login'
+		window.location.href = '/cms/login'
 	}
 
 	const handlePublish = async () => {
@@ -85,7 +85,7 @@ export default function AdminNew() {
 
 	if (!session) {
 		if (typeof window !== 'undefined') {
-			window.location.href = '/login'
+			window.location.href = '/cms/login'
 		}
 		return null
 	}

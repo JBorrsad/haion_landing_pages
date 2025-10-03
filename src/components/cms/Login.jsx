@@ -27,7 +27,7 @@ export default function Login() {
       }
 
       // Login exitoso: redirigir a admin
-      window.location.href = "/admin";
+      window.location.href = "/cms/admin";
     } catch (err) {
       console.error("error login:", err);
       setError(err.message || "Error al iniciar sesión");
