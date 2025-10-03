@@ -53,12 +53,14 @@ export default function AdminNew() {
 				headers: {
 					'Content-Type': 'application/json',
 					'Authorization': `Bearer ${session?.access_token}`,
+					'Origin': window.location.origin,
 				},
 			})
 
 			if (!response.ok) {
-				const error = await response.json()
-				throw new Error(error.error || 'Error al disparar rebuild')
+				const errorData = await response.json().catch(() => ({}))
+				console.error('Error publicando:', errorData)
+				throw new Error(errorData.error || `Error ${response.status}: ${response.statusText}`)
 			}
 
 			setMessage({ 
