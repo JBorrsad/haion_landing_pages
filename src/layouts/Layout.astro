@@ -2,15 +2,13 @@
 import "@fontsource-variable/onest"
 import "../styles/typography.css"
 import "../styles/sections.css"
-import "../styles/microinteractions.css"
 
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
-import { ViewTransitions } from "astro:transitions"
 
 interface Props {
-  title: string
-  description: string
+	title: string
+	description: string
 }
 
 const { description, title } = Astro.props
@@ -28,7 +26,6 @@ const { description, title } = Astro.props
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-    <ViewTransitions />
   </head>
 
   <body class="relative text-black dark:text-white flex flex-col min-h-screen bg-black">
@@ -43,8 +40,6 @@ const { description, title } = Astro.props
       <slot />
     </main>
     <Footer />
-    
-    <script src="../scripts/reveal.ts"></script>
     
     <style is:global>
       :root {
