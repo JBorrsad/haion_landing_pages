@@ -145,13 +145,13 @@ export default function AdminHome({ userId }) {
             <label className="block text-sm font-medium mb-2">
               Título Principal
             </label>
-             <input
-               type="text"
-               value={content.hero?.title || ""}
-               onChange={(e) => updateField("hero.title", e.target.value)}
-               className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
-               placeholder="Asesoría integral para empresas"
-             />
+            <input
+              type="text"
+              value={content.hero?.title || ""}
+              onChange={(e) => updateField("hero.title", e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+              placeholder="Asesoría integral para empresas"
+            />
           </div>
 
           <div>
@@ -162,7 +162,7 @@ export default function AdminHome({ userId }) {
               type="text"
               value={content.hero?.areas || ""}
               onChange={(e) => updateField("hero.areas", e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
               placeholder="Fiscal · Laboral · Contable"
             />
           </div>
@@ -175,7 +175,7 @@ export default function AdminHome({ userId }) {
               rows={3}
               value={content.hero?.description || ""}
               onChange={(e) => updateField("hero.description", e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
               placeholder="Gestionamos tus recursos..."
             />
           </div>
@@ -228,7 +228,7 @@ export default function AdminHome({ userId }) {
               onChange={(e) =>
                 updateField("sobreNosotros.title", e.target.value)
               }
-              className="w-full px-4 py-2 border rounded-lg"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
             />
           </div>
 
@@ -299,7 +299,7 @@ export default function AdminHome({ userId }) {
                     newItems[index].label = e.target.value;
                     updateField("sobreNosotros.valores.items", newItems);
                   }}
-                   className="w-1/3 px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+                  className="w-1/3 px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
                   placeholder="Etiqueta:"
                 />
                 <input
@@ -312,7 +312,7 @@ export default function AdminHome({ userId }) {
                     newItems[index].description = e.target.value;
                     updateField("sobreNosotros.valores.items", newItems);
                   }}
-                   className="w-2/3 px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+                  className="w-2/3 px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
                   placeholder="descripción"
                 />
               </div>
@@ -336,7 +336,7 @@ export default function AdminHome({ userId }) {
               rows={2}
               value={content.cta?.title || ""}
               onChange={(e) => updateField("cta.title", e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
             />
           </div>
 
@@ -346,7 +346,7 @@ export default function AdminHome({ userId }) {
               type="text"
               value={content.cta?.subtitle || ""}
               onChange={(e) => updateField("cta.subtitle", e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
             />
           </div>
 
@@ -358,7 +358,7 @@ export default function AdminHome({ userId }) {
               type="text"
               value={content.cta?.buttonText || ""}
               onChange={(e) => updateField("cta.buttonText", e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
             />
           </div>
 
@@ -370,7 +370,7 @@ export default function AdminHome({ userId }) {
               type="text"
               value={content.cta?.footer || ""}
               onChange={(e) => updateField("cta.footer", e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
               placeholder="Te respondemos en menos de 24 horas"
             />
           </div>
