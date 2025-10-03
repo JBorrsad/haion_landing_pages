@@ -24,12 +24,13 @@ Las imágenes se pueden subir desde el panel `/admin` en dos formas:
 
 ```json
 {
-	"hero.image": "/img/hero.jpg",
-	"hero.imageAlt": "Descripción clara y accesible"
+  "hero.image": "/img/hero.jpg",
+  "hero.imageAlt": "Descripción clara y accesible"
 }
 ```
 
 El alt text debe:
+
 - Describir el contenido de la imagen
 - Ser conciso (máximo 125 caracteres)
 - Incluir keywords relevantes de forma natural
@@ -78,14 +79,14 @@ En los JSON de contenido, organiza las imágenes así:
 
 ```json
 {
-	"hero": {
-		"title": "Título",
-		"image": "/img/hero.jpg",
-		"imageAlt": "Descripción accesible",
-		"imageWidth": 1920,
-		"imageHeight": 1080,
-		"imageSrcset": "/img/hero-800.jpg 800w, /img/hero-1920.jpg 1920w"
-	}
+  "hero": {
+    "title": "Título",
+    "image": "/img/hero.jpg",
+    "imageAlt": "Descripción accesible",
+    "imageWidth": 1920,
+    "imageHeight": 1080,
+    "imageSrcset": "/img/hero-800.jpg 800w, /img/hero-1920.jpg 1920w"
+  }
 }
 ```
 
@@ -94,6 +95,7 @@ En los JSON de contenido, organiza las imágenes así:
 #### Excluir Admin de Indexación
 
 El sitemap y robots.txt ya están configurados para excluir:
+
 - `/admin`
 - `/login`
 
@@ -104,6 +106,7 @@ Estas páginas tienen `<meta name="robots" content="noindex, nofollow" />`.
 El sitemap se genera automáticamente en el build con `@astrojs/sitemap`.
 
 Solo incluye:
+
 - Páginas públicas del sitio
 - Excluye admin, login y páginas draft
 
@@ -116,6 +119,7 @@ Para versionar imágenes localmente y mejorar SEO:
 3. Las URLs en los JSON se reescriben automáticamente
 
 **Ventajas:**
+
 - Imágenes versionadas con el código
 - Mejor control de caché
 - URLs relativas (mejor para SEO)
@@ -131,4 +135,3 @@ Para versionar imágenes localmente y mejorar SEO:
 - [ ] Srcset para responsive (opcional)
 - [ ] Admin y login excluidos del sitemap
 - [ ] Meta robots noindex en admin/login
-
