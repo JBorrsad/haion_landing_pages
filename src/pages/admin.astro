@@ -16,5 +16,11 @@ import AdminNew from "@/components/AdminNew.jsx"
 	meta[name="robots"] {
 		content: "noindex, nofollow";
 	}
+	
+	/* Ocultar header y footer del sitio en admin */
+	header[data-astro-cid-r432udu2],
+	footer {
+		display: none !important;
+	}
 </style>
 
