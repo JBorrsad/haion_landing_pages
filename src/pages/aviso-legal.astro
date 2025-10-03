@@ -1,0 +1,49 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import SectionContainer from "@/components/shared/ui/SectionContainer.astro"
+import LegalContent from "@/components/legal/LegalContent.astro"
+---
+
+<Layout
+	title="Aviso Legal - Haion Consulting"
+	description="Aviso legal y condiciones de uso del sitio web de Haion Consulting, asesoría fiscal, laboral y contable en Pamplona."
+>
+	<main>
+		<SectionContainer variant="plain">
+			<div class="max-w-4xl mx-auto">
+				<!-- Título principal -->
+				<h1 class="h2 mb-8 md:mb-10">Aviso Legal</h1>
+				
+			<div class="text-body leading-relaxed mb-8">
+				<p class="mb-6">
+					El presente aviso legal regula el uso y utilización del sitio web www.haion-consulting.es, del que es titular Haion Consulting.
+				</p>
+			</div>
+
+			<!-- Contenido Legal Compartido -->
+			<LegalContent />
+
+				<!-- CTA al final -->
+				<div class="mt-16 bg-yellow-50 dark:bg-yellow-900/20 p-8 rounded-2xl border border-yellow-200 dark:border-yellow-700 text-center">
+					<h3 class="h3 mb-4">
+						¿Necesitas más información?
+					</h3>
+					<p class="text-body mb-6">
+						Si tienes alguna duda o deseas ampliar la información sobre nuestros servicios, contacta con nosotros sin compromiso.
+					</p>
+					<a
+						href="/contacto"
+						class="btn-secondary"
+					>
+						Ponte en contacto
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+						</svg>
+					</a>
+				</div>
+
+			</div>
+		</SectionContainer>
+	</main>
+</Layout>
+

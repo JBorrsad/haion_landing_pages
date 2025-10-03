@@ -32,13 +32,13 @@
     @apply max-w-7xl mx-auto px-6 sm:px-8 md:px-12;
   }
 
-  /* Contraste de texto (ligeramente más fuerte que el actual) */
-  .text-body {
-    @apply text-gray-700 dark:text-gray-200;
-  }
-  .text-muted {
-    @apply text-gray-600 dark:text-gray-300;
-  }
+	/* Contraste de texto - tamaños más compactos estilo Ilai */
+	.text-body {
+		@apply text-gray-700 dark:text-gray-200 leading-normal text-sm sm:text-[15px];
+	}
+	.text-muted {
+		@apply text-gray-600 dark:text-gray-300 text-xs sm:text-sm;
+	}
 
   /* Utilidad de card unificada */
   .card {

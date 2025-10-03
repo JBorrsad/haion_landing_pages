@@ -1,0 +1,96 @@
+---
+import LegalContent from "@/components/legal/LegalContent.astro"
+---
+
+<div id="legal-modal" class="fixed inset-0 z-50 hidden">
+	<!-- Overlay -->
+	<div class="fixed inset-0 bg-black bg-opacity-75 transition-opacity" id="modal-overlay"></div>
+
+	<!-- Modal Container - Centrado perfecto -->
+	<div class="fixed inset-0 flex items-center justify-center p-4 overflow-y-auto">
+		<div class="relative w-full max-w-3xl my-8">
+			<!-- Modal -->
+			<div class="relative bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden">
+				<!-- Header -->
+				<div class="px-6 pt-6 pb-4 bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+					<div class="flex items-center justify-between">
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">
+							Aviso Legal y Política de Privacidad
+						</h3>
+			<button
+				id="close-modal"
+							class="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 transition-colors flex-shrink-0 ml-4"
+							aria-label="Cerrar modal"
+			>
+							<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+				</svg>
+			</button>
+							</div>
+						</div>
+
+				<!-- Content - Scrollable -->
+				<div class="px-6 py-6 max-h-[60vh] overflow-y-auto">
+					<LegalContent />
+				</div>
+
+				<!-- Footer -->
+				<div class="px-6 py-4 bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+					<button
+						id="close-modal-footer"
+						class="w-full px-4 py-2 bg-yellow-200 hover:bg-yellow-300 text-gray-800 font-medium rounded-lg transition-colors text-sm sm:text-base"
+					>
+						Cerrar
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script is:inline>
+	window.openLegalModal = function() {
+		const modal = document.getElementById('legal-modal');
+		if (modal) {
+			modal.classList.remove('hidden');
+			document.body.style.overflow = 'hidden';
+		}
+	}
+
+	window.closeLegalModal = function() {
+		const modal = document.getElementById('legal-modal');
+			if (modal) {
+				modal.classList.add('hidden');
+				document.body.style.overflow = 'auto';
+			}
+		}
+
+	function initLegalModal() {
+		const closeBtn = document.getElementById('close-modal');
+		const closeBtnFooter = document.getElementById('close-modal-footer');
+		const overlay = document.getElementById('modal-overlay');
+
+		if (closeBtn) {
+			closeBtn.addEventListener('click', window.closeLegalModal);
+		}
+
+		if (closeBtnFooter) {
+			closeBtnFooter.addEventListener('click', window.closeLegalModal);
+		}
+
+		if (overlay) {
+			overlay.addEventListener('click', window.closeLegalModal);
+		}
+	}
+
+	// Ejecutar en la carga inicial
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initLegalModal);
+	} else {
+	initLegalModal();
+	}
+	
+	// Re-ejecutar después de cada navegación
+	document.addEventListener('astro:page-load', initLegalModal);
+</script>
+

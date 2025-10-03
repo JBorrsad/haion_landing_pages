@@ -17,30 +17,35 @@
 }
 
 @layer components {
-  /* Headings con DM Serif */
-  .h1 {
-    font-family: "DM Serif Display", serif;
-    @apply font-normal text-gray-900 dark:text-white
-           text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
-  }
-  .h2 {
-    font-family: "DM Serif Display", serif;
-    @apply font-normal text-gray-900 dark:text-white
-           text-4xl sm:text-5xl md:text-6xl;
-  }
-  .h3 {
-    font-family: "DM Serif Display", serif;
-    @apply font-normal text-gray-900 dark:text-white
-           text-2xl sm:text-3xl;
-  }
+	/* Headings con DM Serif - más compactos estilo Ilai */
+	.h1 {
+		font-family: "DM Serif Display", serif;
+		@apply font-normal text-gray-900 dark:text-white leading-tight
+		       text-3xl sm:text-4xl md:text-5xl;
+	}
+	.h2 {
+		font-family: "DM Serif Display", serif;
+		@apply font-normal text-gray-900 dark:text-white leading-tight
+		       text-2xl sm:text-3xl md:text-4xl;
+	}
+	.h3 {
+		font-family: "DM Serif Display", serif;
+		@apply font-normal text-gray-900 dark:text-white leading-snug
+		       text-lg sm:text-xl;
+	}
+	.h4 {
+		font-family: "DM Serif Display", serif;
+		@apply font-normal text-gray-900 dark:text-white leading-snug
+		       text-base sm:text-lg;
+	}
 
-  /* Texto base */
-  .lead {
-    @apply text-gray-600 dark:text-gray-400 leading-relaxed text-base sm:text-lg;
-  }
-  .muted {
-    @apply text-sm text-gray-600 dark:text-gray-400;
-  }
+	/* Texto base - más compacto */
+	.lead {
+		@apply text-gray-600 dark:text-gray-400 leading-normal text-sm sm:text-[15px];
+	}
+	.muted {
+		@apply text-xs sm:text-sm text-gray-600 dark:text-gray-400;
+	}
 
   /* Botones */
   .btn {
