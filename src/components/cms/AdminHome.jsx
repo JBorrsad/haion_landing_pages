@@ -475,6 +475,171 @@ export default function AdminHome({ userId }) {
             />
           </div>
         </div>
+       </section>
+
+      {/* Sección de Servicios */}
+      <section className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow">
+        <h2 className="text-2xl font-bold mb-6 pb-3 border-b">
+          Nuestros Servicios
+        </h2>
+        
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium mb-2">Título de Sección</label>
+            <input
+              type="text"
+              value={content.servicios?.title || ""}
+              onChange={(e) => updateField("servicios.title", e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+              placeholder="Soluciones integrales para tu empresa"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-2">Subtítulo de Sección</label>
+            <textarea
+              rows={2}
+              value={content.servicios?.subtitle || ""}
+              onChange={(e) => updateField("servicios.subtitle", e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+            />
+          </div>
+
+          {/* Servicio Fiscal */}
+          <div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+            <h3 className="font-bold mb-3 text-lg">🏛️ Servicio Fiscal</h3>
+            
+            <div className="space-y-3">
+              <div>
+                <label className="block text-sm font-medium mb-1">Título</label>
+                <input
+                  type="text"
+                  value={content.servicios?.fiscal?.title || ""}
+                  onChange={(e) => updateField("servicios.fiscal.title", e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium mb-1">Descripción</label>
+                <textarea
+                  rows={2}
+                  value={content.servicios?.fiscal?.description || ""}
+                  onChange={(e) => updateField("servicios.fiscal.description", e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-1">Items de servicio (uno por línea)</label>
+                {content.servicios?.fiscal?.items?.map((item, index) => (
+                  <input
+                    key={index}
+                    type="text"
+                    value={item}
+                    onChange={(e) => {
+                      const newItems = [...(content.servicios.fiscal.items || [])]
+                      newItems[index] = e.target.value
+                      updateField("servicios.fiscal.items", newItems)
+                    }}
+                    className="w-full px-3 py-2 mb-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+                    placeholder={`Item ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Servicio Laboral */}
+          <div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+            <h3 className="font-bold mb-3 text-lg">👥 Servicio Laboral</h3>
+            
+            <div className="space-y-3">
+              <div>
+                <label className="block text-sm font-medium mb-1">Título</label>
+                <input
+                  type="text"
+                  value={content.servicios?.laboral?.title || ""}
+                  onChange={(e) => updateField("servicios.laboral.title", e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium mb-1">Descripción</label>
+                <textarea
+                  rows={2}
+                  value={content.servicios?.laboral?.description || ""}
+                  onChange={(e) => updateField("servicios.laboral.description", e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-1">Items de servicio (uno por línea)</label>
+                {content.servicios?.laboral?.items?.map((item, index) => (
+                  <input
+                    key={index}
+                    type="text"
+                    value={item}
+                    onChange={(e) => {
+                      const newItems = [...(content.servicios.laboral.items || [])]
+                      newItems[index] = e.target.value
+                      updateField("servicios.laboral.items", newItems)
+                    }}
+                    className="w-full px-3 py-2 mb-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+                    placeholder={`Item ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Servicio Contable */}
+          <div className="border border-gray-200 rounded-lg p-4 bg-gray-50">
+            <h3 className="font-bold mb-3 text-lg">📊 Servicio Contable</h3>
+            
+            <div className="space-y-3">
+              <div>
+                <label className="block text-sm font-medium mb-1">Título</label>
+                <input
+                  type="text"
+                  value={content.servicios?.contable?.title || ""}
+                  onChange={(e) => updateField("servicios.contable.title", e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium mb-1">Descripción</label>
+                <textarea
+                  rows={2}
+                  value={content.servicios?.contable?.description || ""}
+                  onChange={(e) => updateField("servicios.contable.description", e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-1">Items de servicio (uno por línea)</label>
+                {content.servicios?.contable?.items?.map((item, index) => (
+                  <input
+                    key={index}
+                    type="text"
+                    value={item}
+                    onChange={(e) => {
+                      const newItems = [...(content.servicios.contable.items || [])]
+                      newItems[index] = e.target.value
+                      updateField("servicios.contable.items", newItems)
+                    }}
+                    className="w-full px-3 py-2 mb-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+                    placeholder={`Item ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* CTA Final */}
