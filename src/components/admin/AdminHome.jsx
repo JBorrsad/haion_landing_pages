@@ -228,26 +228,34 @@ export default function AdminHome({ userId }) {
                   onChange={async (e) => {
                     const file = e.target.files[0];
                     if (!file) return;
-                    
+
                     try {
-                      const fileExt = file.name.split('.').pop();
+                      const fileExt = file.name.split(".").pop();
                       const fileName = `hero/${Date.now()}.${fileExt}`;
-                      
+
                       const { error } = await supabase.storage
-                        .from('assets')
+                        .from("assets")
                         .upload(fileName, file);
-                      
+
                       if (error) throw error;
-                      
-                      const { data: { publicUrl } } = supabase.storage
-                        .from('assets')
+
+                      const {
+                        data: { publicUrl },
+                      } = supabase.storage
+                        .from("assets")
                         .getPublicUrl(fileName);
-                      
-                      updateField('hero.image', publicUrl);
-                      setMessage({ type: 'success', text: 'Imagen subida correctamente' });
+
+                      updateField("hero.image", publicUrl);
+                      setMessage({
+                        type: "success",
+                        text: "Imagen subida correctamente",
+                      });
                       setTimeout(() => setMessage(null), 3000);
                     } catch (err) {
-                      setMessage({ type: 'error', text: 'Error al subir imagen: ' + err.message });
+                      setMessage({
+                        type: "error",
+                        text: "Error al subir imagen: " + err.message,
+                      });
                     }
                   }}
                   className="text-sm"
@@ -353,109 +361,121 @@ export default function AdminHome({ userId }) {
             </div>
           </div>
 
-           <div>
-             <label className="block text-sm font-medium mb-2">Valores</label>
-             {content.sobreNosotros?.valores?.items?.map((item, index) => (
-               <div key={index} className="flex gap-2 mb-2">
-                 <input
-                   type="text"
-                   value={item.label}
-                   onChange={(e) => {
-                     const newItems = [
-                       ...(content.sobreNosotros.valores.items || []),
-                     ];
-                     newItems[index].label = e.target.value;
-                     updateField("sobreNosotros.valores.items", newItems);
-                   }}
-                   className="w-1/3 px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
-                   placeholder="Etiqueta:"
-                 />
-                 <input
-                   type="text"
-                   value={item.description}
-                   onChange={(e) => {
-                     const newItems = [
-                       ...(content.sobreNosotros.valores.items || []),
-                     ];
-                     newItems[index].description = e.target.value;
-                     updateField("sobreNosotros.valores.items", newItems);
-                   }}
-                   className="w-2/3 px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
-                   placeholder="descripción"
-                 />
-               </div>
-             ))}
-           </div>
+          <div>
+            <label className="block text-sm font-medium mb-2">Valores</label>
+            {content.sobreNosotros?.valores?.items?.map((item, index) => (
+              <div key={index} className="flex gap-2 mb-2">
+                <input
+                  type="text"
+                  value={item.label}
+                  onChange={(e) => {
+                    const newItems = [
+                      ...(content.sobreNosotros.valores.items || []),
+                    ];
+                    newItems[index].label = e.target.value;
+                    updateField("sobreNosotros.valores.items", newItems);
+                  }}
+                  className="w-1/3 px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+                  placeholder="Etiqueta:"
+                />
+                <input
+                  type="text"
+                  value={item.description}
+                  onChange={(e) => {
+                    const newItems = [
+                      ...(content.sobreNosotros.valores.items || []),
+                    ];
+                    newItems[index].description = e.target.value;
+                    updateField("sobreNosotros.valores.items", newItems);
+                  }}
+                  className="w-2/3 px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+                  placeholder="descripción"
+                />
+              </div>
+            ))}
+          </div>
 
-           <div>
-             <label className="block text-sm font-medium mb-2">
-               Imagen del Equipo
-             </label>
-             <div className="space-y-2">
-               <input
-                 type="text"
-                 value={content.sobreNosotros?.image || ""}
-                 onChange={(e) => updateField("sobreNosotros.image", e.target.value)}
-                 className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
-                 placeholder="/img/nosotros.png"
-               />
-               <div className="flex items-center gap-2">
-                 <input
-                   type="file"
-                   accept="image/*"
-                   onChange={async (e) => {
-                     const file = e.target.files[0];
-                     if (!file) return;
-                     
-                     try {
-                       const fileExt = file.name.split('.').pop();
-                       const fileName = `sobre-nosotros/${Date.now()}.${fileExt}`;
-                       
-                       const { error } = await supabase.storage
-                         .from('assets')
-                         .upload(fileName, file);
-                       
-                       if (error) throw error;
-                       
-                       const { data: { publicUrl } } = supabase.storage
-                         .from('assets')
-                         .getPublicUrl(fileName);
-                       
-                       updateField('sobreNosotros.image', publicUrl);
-                       setMessage({ type: 'success', text: 'Imagen subida correctamente' });
-                       setTimeout(() => setMessage(null), 3000);
-                     } catch (err) {
-                       setMessage({ type: 'error', text: 'Error al subir imagen: ' + err.message });
-                     }
-                   }}
-                   className="text-sm"
-                 />
-                 <span className="text-xs text-gray-500">o pega una URL</span>
-               </div>
-               {content.sobreNosotros?.image && (
-                 <img
-                   src={content.sobreNosotros.image}
-                   alt="Preview"
-                   className="max-w-xs rounded-lg border border-gray-200"
-                 />
-               )}
-             </div>
-           </div>
+          <div>
+            <label className="block text-sm font-medium mb-2">
+              Imagen del Equipo
+            </label>
+            <div className="space-y-2">
+              <input
+                type="text"
+                value={content.sobreNosotros?.image || ""}
+                onChange={(e) =>
+                  updateField("sobreNosotros.image", e.target.value)
+                }
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+                placeholder="/img/nosotros.png"
+              />
+              <div className="flex items-center gap-2">
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={async (e) => {
+                    const file = e.target.files[0];
+                    if (!file) return;
 
-           <div>
-             <label className="block text-sm font-medium mb-2">
-               Texto Alt de la Imagen (para SEO)
-             </label>
-             <input
-               type="text"
-               value={content.sobreNosotros?.imageAlt || ""}
-               onChange={(e) => updateField("sobreNosotros.imageAlt", e.target.value)}
-               className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
-               placeholder="Equipo de trabajo de Haion Consulting"
-             />
-           </div>
-         </div>
-       </section>
+                    try {
+                      const fileExt = file.name.split(".").pop();
+                      const fileName = `sobre-nosotros/${Date.now()}.${fileExt}`;
+
+                      const { error } = await supabase.storage
+                        .from("assets")
+                        .upload(fileName, file);
+
+                      if (error) throw error;
+
+                      const {
+                        data: { publicUrl },
+                      } = supabase.storage
+                        .from("assets")
+                        .getPublicUrl(fileName);
+
+                      updateField("sobreNosotros.image", publicUrl);
+                      setMessage({
+                        type: "success",
+                        text: "Imagen subida correctamente",
+                      });
+                      setTimeout(() => setMessage(null), 3000);
+                    } catch (err) {
+                      setMessage({
+                        type: "error",
+                        text: "Error al subir imagen: " + err.message,
+                      });
+                    }
+                  }}
+                  className="text-sm"
+                />
+                <span className="text-xs text-gray-500">o pega una URL</span>
+              </div>
+              {content.sobreNosotros?.image && (
+                <img
+                  src={content.sobreNosotros.image}
+                  alt="Preview"
+                  className="max-w-xs rounded-lg border border-gray-200"
+                />
+              )}
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-2">
+              Texto Alt de la Imagen (para SEO)
+            </label>
+            <input
+              type="text"
+              value={content.sobreNosotros?.imageAlt || ""}
+              onChange={(e) =>
+                updateField("sobreNosotros.imageAlt", e.target.value)
+              }
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+              placeholder="Equipo de trabajo de Haion Consulting"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* CTA Final */}
       <section className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow">
