@@ -18,9 +18,15 @@ import AdminNew from "@/components/AdminNew.jsx"
 	}
 	
 	/* Ocultar header y footer del sitio en admin */
-	header[data-astro-cid-r432udu2],
+	body > header:not(.bg-white),
+	body > main > footer,
 	footer {
 		display: none !important;
+	}
+	
+	/* Asegurar que solo se ve el contenido del admin */
+	body {
+		padding-top: 0 !important;
 	}
 </style>
 
