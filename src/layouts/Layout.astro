@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions"
 import "@fontsource-variable/onest"
 import "../styles/typography.css"
 import "../styles/sections.css"
@@ -26,6 +27,7 @@ const { description, title } = Astro.props
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <ViewTransitions />
   </head>
 
   <body class="relative text-black dark:text-white flex flex-col min-h-screen bg-black">
