@@ -103,7 +103,10 @@ export default function Admin() {
 			// Llamar a Edge Function para disparar rebuild
 			const { data: { session } } = await supabase.auth.getSession()
 			
-			const response = await fetch('https://YOUR_PROJECT.supabase.co/functions/v1/rebuild', {
+			const supabaseUrl = import.meta.env.PUBLIC_SUPABASE_URL
+			const edgeFunctionUrl = `${supabaseUrl}/functions/v1/rebuild`
+			
+			const response = await fetch(edgeFunctionUrl, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
