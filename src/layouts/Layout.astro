@@ -10,9 +10,10 @@ import Footer from "../components/shared/layout/Footer.astro"
 interface Props {
 	title: string
 	description: string
+	noindex?: boolean
 }
 
-const { description, title } = Astro.props
+const { description, title, noindex = false } = Astro.props
 ---
 
 <!doctype html>
@@ -21,6 +22,7 @@ const { description, title } = Astro.props
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>

@@ -1,0 +1,20 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import LoginForm from "@/components/Login.jsx"
+---
+
+<Layout
+	title="Admin Login - Haion Consulting"
+	description="Panel de administración"
+	noindex={true}
+>
+	<LoginForm client:only="react" />
+</Layout>
+
+<style is:global>
+	/* Prevenir indexación */
+	meta[name="robots"] {
+		content: "noindex, nofollow";
+	}
+</style>
+
