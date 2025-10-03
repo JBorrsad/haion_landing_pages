@@ -1,6 +1,10 @@
 name: Build and Deploy GitHub Pages
 
 on:
+	# Disparado automáticamente en push a main
+	push:
+		branches: [main]
+	
 	# Disparado por la Edge Function vía repository_dispatch
 	repository_dispatch:
 		types: [cms_update]
