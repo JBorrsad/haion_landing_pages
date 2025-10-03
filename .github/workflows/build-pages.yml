@@ -42,8 +42,11 @@ jobs:
 					DOWNLOAD_ASSETS: 'false'
 				run: node scripts/sync-from-supabase.mjs
 
-			- name: Build with Astro
-				run: npm run build
+		- name: Build with Astro
+			env:
+				PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+				PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+			run: npm run build
 
 			- name: Upload artifact
 				uses: actions/upload-pages-artifact@v3
