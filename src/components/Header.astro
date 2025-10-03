@@ -140,13 +140,7 @@ const navItems = [
 	function initNavbar() {
 		const path = window.location.pathname
 		const isHome = path === "/" || path === "/index.html"
-		
-		// Obtener TODOS los links (desktop + mobile)
 		const allLinks = document.querySelectorAll('a[data-section]')
-		
-		console.log('navbar cargado')
-		console.log('ruta:', path)
-		console.log('links:', allLinks.length)
 		
 		// Logo animation
 		const logos = document.querySelectorAll('#logo-link-desktop, #logo-link-mobile')
@@ -181,10 +175,9 @@ const navItems = [
 			allLinks.forEach(link => {
 				const label = link.getAttribute('aria-label')
 				if (label === section) {
-					link.classList.add("text-yellow-600", "font-bold")
-					console.log('resaltado:', section)
+					link.classList.add("text-yellow-600", "font-bold", "underline", "underline-offset-4", "decoration-2")
 				} else {
-					link.classList.remove("text-yellow-600", "font-bold")
+					link.classList.remove("text-yellow-600", "font-bold", "underline", "underline-offset-4", "decoration-2")
 				}
 			})
 		}
@@ -199,7 +192,6 @@ const navItems = [
 		// Pagina principal: scroll spy
 		if (isHome) {
 			const sections = document.querySelectorAll("section[id]")
-			console.log('secciones:', sections.length)
 			
 			function checkScroll() {
 				const scroll = window.scrollY + 200
