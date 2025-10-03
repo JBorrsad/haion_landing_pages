@@ -94,13 +94,24 @@ try {
 
     const lastKey = keys[keys.length - 1];
 
+    // Intentar parsear valores JSON (arrays y objetos)
+    let parsedValue = value;
+    if (typeof value === "string" && (value.startsWith("[") || value.startsWith("{"))) {
+      try {
+        parsedValue = JSON.parse(value);
+      } catch (e) {
+        // Si falla el parse, usar el valor original
+        parsedValue = value;
+      }
+    }
+
     // Si es imagen y DOWNLOAD_ASSETS, descargar
-    if (type === "image" && DOWNLOAD_ASSETS && value.startsWith("http")) {
+    if (type === "image" && DOWNLOAD_ASSETS && parsedValue.startsWith("http")) {
       // TODO: Implementar descarga de imágenes
       // Por ahora, solo guardar la URL
-      current[lastKey] = value;
+      current[lastKey] = parsedValue;
     } else {
-      current[lastKey] = value;
+      current[lastKey] = parsedValue;
     }
   }
 
