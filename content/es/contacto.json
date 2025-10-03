@@ -1,0 +1,37 @@
+{
+	"title": "Contáctanos",
+	"ubicacion": {
+		"title": "Ubicación",
+		"address": "C/ Provincias 5, 1ª Planta<br>31002 Pamplona, Navarra"
+	},
+	"telefono": {
+		"title": "Teléfono",
+		"number": "620 327 299"
+	},
+	"email": {
+		"title": "Email",
+		"address": "info@haion-consulting.es",
+		"link": "mailto:info@haion-consulting.es"
+	},
+	"whatsapp": {
+		"title": "WhatsApp",
+		"number": "620 327 299",
+		"link": "https://wa.me/34620327299"
+	},
+	"linkedin": {
+		"title": "LinkedIn",
+		"label": "Haion Consulting",
+		"url": "https://www.linkedin.com/company/haionconsulting/"
+	},
+	"form": {
+		"sectionTitle": "¿TIENES ALGUNA DUDA?",
+		"nombrePlaceholder": "Nombre",
+		"emailPlaceholder": "Email",
+		"telefonoPlaceholder": "Teléfono",
+		"mensajePlaceholder": "Mensaje",
+		"privacyLabel": "He leído y acepto las condiciones del <span id=\"open-legal-link\" class=\"text-yellow-600 dark:text-yellow-400 hover:underline cursor-pointer\">Aviso legal y la política de privacidad</span>",
+		"buttonText": "Enviar",
+		"footer": "Te respondemos en menos de 24 horas."
+	}
+}
+

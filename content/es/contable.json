@@ -1,0 +1,59 @@
+{
+	"hero": {
+		"title": "Tus números no son solo cifras: son decisiones estratégicas.",
+		"subtitle": "La contabilidad es la brújula que guía las decisiones empresariales. Con nuestra asesoría contable, te ayudamos a tener una visión clara y precisa de tus finanzas, para que puedas tomar decisiones basadas en datos reales y no en suposiciones.",
+		"image": "/img/contable.jpg",
+		"imageAlt": "Asesoría contable profesional"
+	},
+	"benefits": {
+		"title": "Beneficios de una buena asesoría contable",
+		"items": [
+			"Toma de decisiones empresariales más informadas.",
+			"Optimización de tus recursos financieros.",
+			"Transparencia ante inversores, bancos y autoridades fiscales.",
+			"Evitación de errores y sanciones contables."
+		]
+	},
+	"services": {
+		"title": "Servicios principales",
+		"items": [
+			{
+				"title": "Contabilidad clara y rigurosa",
+				"description": "Te proporcionamos un análisis detallado y transparente de tus cuentas y balances."
+			},
+			{
+				"title": "Elaboración de libros oficiales, balances y cuentas anuales",
+				"description": "Cumplimos con todos los requisitos legales y te damos los informes contables necesarios para tu tranquilidad."
+			},
+			{
+				"title": "Informes contables personalizados",
+				"description": "Generamos informes que te ayudarán a tomar decisiones estratégicas, adaptados a tu tipo de negocio."
+			},
+			{
+				"title": "Gestión fiscal simplificada",
+				"description": "Integración de la contabilidad con la gestión fiscal para facilitar tu vida empresarial."
+			}
+		]
+	},
+	"cta": {
+		"title": "¿Listo para tomar decisiones estratégicas con datos claros?"
+	},
+	"related": {
+		"title": "Otros servicios que pueden interesarte",
+		"items": [
+			{
+				"title": "Fiscal",
+				"description": "Optimización fiscal, declaraciones y planificación estratégica.",
+				"href": "/fiscal",
+				"icon": "fiscal"
+			},
+			{
+				"title": "Laboral",
+				"description": "Gestión de nóminas, contratos y cumplimiento laboral.",
+				"href": "/laboral",
+				"icon": "laboral"
+			}
+		]
+	}
+}
+

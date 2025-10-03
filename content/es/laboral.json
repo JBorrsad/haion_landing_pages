@@ -1,0 +1,59 @@
+{
+	"hero": {
+		"title": "Cuidamos de tu equipo y aseguramos el cumplimiento normativo.",
+		"subtitle": "La gestión laboral no solo se trata de cumplir con la legislación, sino de crear un ambiente de trabajo sano, legal y eficiente. Te ayudamos a gestionar tu equipo de manera que puedas centrarte en lo que mejor sabes hacer: crecer tu negocio.",
+		"image": "/img/laboral.png",
+		"imageAlt": "Asesoría laboral profesional"
+	},
+	"benefits": {
+		"title": "Beneficios de una buena asesoría laboral",
+		"items": [
+			"Cumplimiento con la normativa laboral vigente.",
+			"Reducción de riesgos laborales y legales.",
+			"Mejora de la productividad y satisfacción de tus empleados.",
+			"Ahorro de tiempo y recursos en gestión de personal."
+		]
+	},
+	"services": {
+		"title": "Servicios principales",
+		"items": [
+			{
+				"title": "Gestión de nóminas y seguros sociales",
+				"description": "Nos ocupamos de que tus empleados reciban sus nóminas a tiempo y de acuerdo con la legislación."
+			},
+			{
+				"title": "Contrataciones y despidos",
+				"description": "Te asesoramos en la contratación y despido de empleados, asegurando que todo el proceso sea legal y eficiente."
+			},
+			{
+				"title": "Defensa ante inspecciones de trabajo",
+				"description": "En caso de ser inspeccionado, te representamos ante las autoridades laborales."
+			},
+			{
+				"title": "Convenios colectivos",
+				"description": "Asesoramos sobre los convenios aplicables a tu empresa y cómo negociar las mejores condiciones para tus empleados."
+			}
+		]
+	},
+	"cta": {
+		"title": "¿Estás listo para mejorar la gestión laboral de tu empresa?"
+	},
+	"related": {
+		"title": "Otros servicios que pueden interesarte",
+		"items": [
+			{
+				"title": "Fiscal",
+				"description": "Optimización fiscal, declaraciones y planificación estratégica.",
+				"href": "/fiscal",
+				"icon": "fiscal"
+			},
+			{
+				"title": "Contable",
+				"description": "Contabilidad clara, balances y decisiones estratégicas.",
+				"href": "/contable",
+				"icon": "contable"
+			}
+		]
+	}
+}
+

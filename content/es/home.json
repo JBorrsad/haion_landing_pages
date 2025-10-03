@@ -1,0 +1,97 @@
+{
+	"hero": {
+		"title": "Asesoría integral para empresas",
+		"areas": "Fiscal · Laboral · Contable",
+		"description": "Gestionamos tus recursos de forma eficiente y con visión estratégica. En Haion Consulting no solo cumplimos obligaciones: te ofrecemos soluciones que hacen crecer tu negocio.",
+		"image": "/bg.jpg",
+		"imageAlt": "Asesoría profesional",
+		"button1Text": "Solicita una reunión gratuita",
+		"button1Link": "/contacto",
+		"button2Text": "Ver nuestros servicios",
+		"button2Link": "/#servicios"
+	},
+	"sobreNosotros": {
+		"title": "Sobre nosotros",
+		"intro": [
+			"En Haion Consulting entendemos que asesorar no es solo cumplir con obligaciones, sino adelantarse, entender el contexto y tomar decisiones con criterio.",
+			"Nuestro equipo une experiencia técnica y una visión moderna de la asesoría fiscal, laboral y contable.",
+			"Apostamos por la tecnología como aliada, no como reemplazo. Automatizamos lo repetitivo, optimizamos tiempos y nos enfocamos en lo importante: resolver con claridad, comunicar con precisión y acompañarte con rigor.",
+			"Nos mueve un objetivo claro: tu tranquilidad y satisfacción. Nos comprometemos contigo para crear valor real y duradero."
+		],
+		"mision": {
+			"title": "Misión",
+			"description": "Acompañarte en la gestión de tu negocio con soluciones claras, rápidas y personalizadas."
+		},
+		"vision": {
+			"title": "Visión",
+			"description": "Que te centres en hacer crecer tu empresa, con la confianza de contar con un equipo experto a tu lado."
+		},
+		"valores": {
+			"title": "Valores",
+			"items": [
+				{
+					"label": "Honestidad:",
+					"description": "decimos la verdad, no lo que conviene."
+				},
+				{
+					"label": "Compromiso:",
+					"description": "siempre disponibles cuando nos necesitas."
+				},
+				{
+					"label": "Empatía:",
+					"description": "entendemos tus retos porque también hemos estado ahí."
+				}
+			]
+		},
+		"image": "/img/nosotros.png",
+		"imageAlt": "Equipo de trabajo de Haion Consulting"
+	},
+	"servicios": {
+		"title": "Soluciones integrales para tu empresa",
+		"subtitle": "Soluciones integrales para tu empresa: asesoría fiscal, laboral y contable con enfoque estratégico.",
+		"fiscal": {
+			"title": "Fiscal",
+			"description": "Optimiza tu fiscalidad con estrategias inteligentes y sin riesgos.",
+			"items": [
+				"Declaraciones y liquidaciones (IVA, IRPF, Sociedades).",
+				"Planificación fiscal para reducir carga tributaria.",
+				"Representación ante la Agencia Tributaria.",
+				"Declaraciones trimestrales y anuales."
+			],
+			"link": "/fiscal",
+			"linkText": "Conoce más"
+		},
+		"laboral": {
+			"title": "Laboral",
+			"description": "Cuidamos de tus empleados y de tu tranquilidad.",
+			"items": [
+				"Nóminas y seguros sociales sin errores.",
+				"Asesoramiento en contrataciones, despidos y ERTEs.",
+				"Defensa en inspecciones laborales.",
+				"Negociación y gestión de convenios colectivos."
+			],
+			"link": "/laboral",
+			"linkText": "Conoce más"
+		},
+		"contable": {
+			"title": "Contable",
+			"description": "Tus números son decisiones: conviértelos en estrategia.",
+			"items": [
+				"Contabilidad clara y adaptada a tu negocio.",
+				"Balances, libros oficiales y cuentas anuales.",
+				"Informes personalizados para decisiones rápidas.",
+				"Integración con gestión fiscal para simplificar procesos."
+			],
+			"link": "/contable",
+			"linkText": "Conoce más"
+		}
+	},
+	"cta": {
+		"title": "¿Buscas una asesoría que hable claro, actúe rápido y te entienda?",
+		"subtitle": "Podemos empezar hoy.",
+		"buttonText": "Solicita información",
+		"buttonLink": "/contacto",
+		"footer": "Te respondemos en menos de 24 horas"
+	}
+}
+
